@@ -152,27 +152,64 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-新文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MSF学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/06/%E6%96%B0%E6%96%87%E6%A1%A3/">新文档</a>
+      <a class="article-title" href="/2020/04/06/MSF%E5%AD%A6%E4%B9%A0/">MSF学习</a>
     </h1>
   
 
         
-        <a href="/2020/04/06/%E6%96%B0%E6%96%87%E6%A1%A3/" class="archive-article-date">
-  	<time datetime="2020-04-06T02:39:02.874Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
+        <a href="/2020/04/06/MSF%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-04-06T04:24:31.537Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="这是我的第二篇博客"><a href="#这是我的第二篇博客" class="headerlink" title="这是我的第二篇博客"></a>这是我的第二篇博客</h1><p>msp中快捷键的命令</p>
+        <h1 id="MSF介绍"><a href="#MSF介绍" class="headerlink" title="MSF介绍"></a>MSF介绍</h1><p>全名The Metasploit Framework 即漏洞框架 ，自带攻击工具</p>
+<hr>
+<h1 id="MSF术语"><a href="#MSF术语" class="headerlink" title="MSF术语"></a>MSF术语</h1><ol>
+<li>exploit &emsp;&emsp;&emsp;攻击行为</li>
+<li>payloads&emsp;&emsp;&emsp;攻击载荷即攻击代码</li>
+<li>shellcode&emsp;&emsp;&emsp;溢出代码即攻击载荷运行的攻击机器指令</li>
+<li>module &emsp;&emsp;&emsp;也就是软件代码组件</li>
+<li>listner&emsp;&emsp;&emsp;监听器，攻击时返回给攻击者的信息</li>
+</ol>
+<hr>
+<h1 id="MSF中模块（module）介绍"><a href="#MSF中模块（module）介绍" class="headerlink" title="MSF中模块（module）介绍"></a>MSF中模块（module）介绍</h1><ol>
+<li>Auxiliary&emsp;&emsp;&emsp;主要包括渗透测试中一些辅助性的脚本</li>
+<li>Encoders：&emsp;&emsp;各种编码工具,用于躲过入侵检测和过滤系统</li>
+<li>Exploits：&emsp;&emsp;包括了 exp、0day、各种漏洞使用的脚本</li>
+<li>Nops：&emsp;&emsp; NOP (No Operation or Next Operation) sled,由于 IDS/IPS 会检查数据包中不规则的数据，所以在某些场合下(比如针对溢出攻击),某些特殊的滑行字符串(NOPS x90x90…)则会因为被拦截而导致攻击失效，所以此时需要修改 exploit 中的 NOPs.nops</li>
+<li>Payloads ：&emsp;&emsp;这个单词翻译过来叫载荷：是攻击者发送给系统执行的指令（不包括  exploits  攻击阶段），payloads  主要是在目标机执行的，而 exploits 是在本地机执行作用于目标机。</li>
+<li>Post: &emsp;&emsp;&emsp;&emsp;这个目录里放着 msf 的 exploits 执行成功后，向目标机发送的一些功能性指令比如：提权，获取 hash 等。</li>
+<li>Data： &emsp; &emsp;这个目录里盛放了 Meterpreter、PassiveX、Vnc、DLLs 等这些工具和一些用户接口代码，Msfweb 和一些其他模块用到的数据文件。</li>
+<li>Plugins：&emsp;&emsp;&emsp;这里的模块用户需要使用 load 来加载，提供数据库连接控件， 和各种要用到的控件。</li>
+<li>Scripts：&emsp;&emsp;&emsp;这个目录下的文件大都是Meterpreter 这个模块到用的脚本。比如Meterpreter 里用到的migrate 来转移到其他进程的指令的源代码就在这个目录下。</li>
+<li>Tools：&emsp;&emsp;&emsp;包括一些有用的脚本和零散的工具。</li>
+</ol>
+<hr>
+<h1 id="MSF中的常见命令"><a href="#MSF中的常见命令" class="headerlink" title="MSF中的常见命令"></a>MSF中的常见命令</h1><ol>
+<li>编辑 &emsp;&emsp;&emsp;i</li>
+<li>进入msf控制台&emsp;&emsp;msfconsole</li>
+<li>保存 &emsp;&emsp;&emsp;：w</li>
+<li>保存退出&emsp;：wq</li>
+<li>帮助菜单&emsp;？</li>
+<li>介绍某一个功能 &emsp;? + 某一命令（中间有空格）</li>
+<li>搜索漏洞&ensp;&emsp;search ；例如 search ms08-067&emsp;ms是微软的缩写， 08-067表示08年6月7日，介绍该漏洞属于哪个模块，modules表示模块</li>
+<li>使用某一模块&emsp;&emsp;&emsp;use + 模块名</li>
+<li>查看某一模块的所有信息&emsp;&emsp;&emsp;使用模块后，info即可查看，其中available targets表示该漏洞出现在哪些主机上 其中basic options提供了该漏洞的使用方法需要提供RPOST：被攻击主机名，被攻击主机端口：RPORT</li>
+<li>进入kali中msf的目录&emsp;&emsp;cd metasploit -framework  </li>
+<li>在9的前提下，在目录中查看目录下的文件名称&emsp;&emsp; ls查看所有模块</li>
+<li>返回上一级目录&emsp;&emsp;&emsp; cd..</li>
+</ol>
+<hr>
 
       
 
@@ -185,70 +222,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/06/%E6%96%B0%E6%96%87%E6%A1%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-04-03T12:07:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是我的第一篇博客</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/06/MSF%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
