@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>安全基础学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="window命令 cd :直接退到更目录下   rd :删除空文件夹   rd &#x2F;s &#x2F;q:无条件删除空文件夹  &#x2F;s 表示包括子文件夹也就是目录树，&#x2F;q表示无需提示，安静模式 echo 字符串 &gt;&gt; 路径 + 文件名.扩展名 ：将字符串写入到文件夹中，写在最后面   echo  字符串 &gt; 路径 + 文件名.扩展名 ：将字符串覆盖原有内容   type 文件名.扩展名：浏览该文">
+  <meta name="description" content="虚拟机设置1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实现虚拟机和真实机互联，可以将其看作一个真实机，但网段必须与真实机一样。2.NAT模式：虚拟机使用vmnet8这块虚拟网卡，虚拟机可以连接互联网，但是虚拟机只可以访问自己的真实机，但是不能访问其他真实机 （注意由于版本原因导致我安装的xp和win2003不能连接互联网）3.仅主机模式：虚拟机会使用vmnet1这块网卡，虚拟机不能够">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安全基础学习">
 <meta property="og:url" content="http://yoursite.com/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="window命令 cd :直接退到更目录下   rd :删除空文件夹   rd &#x2F;s &#x2F;q:无条件删除空文件夹  &#x2F;s 表示包括子文件夹也就是目录树，&#x2F;q表示无需提示，安静模式 echo 字符串 &gt;&gt; 路径 + 文件名.扩展名 ：将字符串写入到文件夹中，写在最后面   echo  字符串 &gt; 路径 + 文件名.扩展名 ：将字符串覆盖原有内容   type 文件名.扩展名：浏览该文">
+<meta property="og:description" content="虚拟机设置1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实现虚拟机和真实机互联，可以将其看作一个真实机，但网段必须与真实机一样。2.NAT模式：虚拟机使用vmnet8这块虚拟网卡，虚拟机可以连接互联网，但是虚拟机只可以访问自己的真实机，但是不能访问其他真实机 （注意由于版本原因导致我安装的xp和win2003不能连接互联网）3.仅主机模式：虚拟机会使用vmnet1这块网卡，虚拟机不能够">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-08T13:00:30.205Z">
-<meta property="article:modified_time" content="2020-04-12T12:33:10.403Z">
+<meta property="article:modified_time" content="2020-04-22T12:13:57.043Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -174,7 +174,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="window命令"><a href="#window命令" class="headerlink" title="window命令"></a>window命令</h3><ol>
+        <h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p>1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实现虚拟机和真实机互联，可以将其看作一个真实机，但网段必须与真实机一样。<br>2.NAT模式：虚拟机使用vmnet8这块虚拟网卡，虚拟机可以连接互联网，但是虚拟机只可以访问自己的真实机，但是不能访问其他真实机 （注意由于版本原因导致我安装的xp和win2003不能连接互联网）<br>3.仅主机模式：虚拟机会使用vmnet1这块网卡，虚拟机不能够上网，只能与真实机和虚拟机互访  </p>
+<h2 id="window命令"><a href="#window命令" class="headerlink" title="window命令"></a>window命令</h2><ol>
 <li>cd :直接退到更目录下  </li>
 <li>rd :删除空文件夹  </li>
 <li>rd /s /q:无条件删除空文件夹  /s 表示包括子文件夹也就是目录树，/q表示无需提示，安静模式</li>
@@ -196,11 +197,10 @@
 <li>../:上一级路径  </li>
 <li>move  原文件路径名 目标文件路径名：移动文件  </li>
 <li>ren 旧名 新名 ：将文件/文件夹重命名，ren是rename的缩写  </li>
-<li>/P 删除每一个文件之前提示确认。<br>/F 强制删除只读文件。<br>/S 从所有子目录删除指定文件。<br>/Q 安静模式。删除全局通配符时，不要求确认。<br>/A 根据属性选择要删除的文件。<br>attributes R 只读文件 S 系统文件<br>H 隐藏文件 A 存档文件 </li>
+<li>/P 删除每一个文件之前提示确认。<br>/F 强制删除只读文件。<br>/S 从所有子目录删除指定文件。<br>/Q 安静模式。删除全局通配符时，不要求确认。<br>/A 根据属性选择要删除的文件。<br>attributes R 只读文件 S 系统文件   </li>
+<li>netstat -an：查看所有端口</li>
 </ol>
-<ul>
-<li>表示“否”的前缀<h2 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h2>批处理文件 文件名.bat<br>里面执行的使dos命令<br>开头写上@echo off 关闭回显及不显示执行过程，只显示执行结果，结尾写上pause防止闪退，&gt;nul &nbsp;2&gt;nul表示屏蔽输出，及不管执行正确与否都不会显示输出</li>
-</ul>
+<h2 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h2><p>批处理文件 文件名.bat<br>里面执行的使dos命令<br>开头写上@echo off 关闭回显及不显示执行过程，只显示执行结果，结尾写上pause防止闪退，&gt;nul &nbsp;2&gt;nul表示屏蔽输出，及不管执行正确与否都不会显示输出</p>
 <p>代码</p>
 <pre><code>@echo off  
 color 0a
@@ -247,7 +247,19 @@ shutdown -a
 goto menu
 
 :3
-exit</code></pre>
+exit</code></pre><h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>windows服务器版本win2000，win2003，win2008，win2012<br>Linux服务器：redhat centos<br>每个账户有自己的SID（安全标识符）<br>用户SID：S-…..-500  其中前面表示系统SID，后面500表示管理员的UID为500，普通用户后面接的从1000开始。<br>查看sid值：whoami /user<br>账户密码存储位置：C:\windows\system32\config\SAM,windows系统上，默认密码最长有效期为42天  </p>
+<h4 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h4><ol>
+<li>给人使用的账户<br>administrator #管理员账户<br>guest #来宾账户  </li>
+<li>计算机系统账户<br>system  :系统账户，<font color = red>权限最大</font><br>local services :本地账户=普通用户<br>net services:本地账户= 普通账户  </li>
+</ol>
+<p>账户保存路径（家）<br>win7/win2008 C:\用户\<br>xp/win2003 C:\documents and settings\</p>
+<h4 id="用户命令"><a href="#用户命令" class="headerlink" title="用户命令"></a>用户命令</h4><p>net user ：查看所有用户<br>net user 用户名  密码 ：为用户更改密码<br>net user 用户名 密码 /add ：创建一个新用户<br>net user 用户名 /active:yes/no: 激活或者禁用用户  </p>
+<h2 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h2><p>作用：将需要赋予一样权限的用户放在一个组中，这样可以方便为该用户赋予权限  </p>
+<h4 id="内置组-权限从高到低排序"><a href="#内置组-权限从高到低排序" class="headerlink" title="内置组 权限从高到低排序####"></a>内置组 权限从高到低排序####</h4><p>administrators :管理员组<br>guests：来宾组<br>uses：用户组<br>network：网络配置组<br>print：打印机组<br>remote desktop：远程桌面组  </p>
+<h4 id="组管理命令"><a href="#组管理命令" class="headerlink" title="组管理命令"></a>组管理命令</h4><p>net localgroup:列出所有组<br>net localgroup 组名：查看该组的所有成员<br>net localgroup 组名 /add:添加该组（后面可以为该组赋予权限）<br>net localgroup 组名 用户名 /add 添加用户到组<br>net localgroup 组名 用户名 /del：删除用户<br>net localgroup 组名 /del：删除组</p>
+<h2 id="服务器远程管理"><a href="#服务器远程管理" class="headerlink" title="服务器远程管理"></a>服务器远程管理</h2><p>可视化实现<br>1，将winxp和win2003连接在同一个局域网中，以保证能ping通<br>2.将服务器的远程桌面开启，我的电脑-&gt;右键属性，远程-&gt;开启远程桌面<br>3.在客户机上win+r输入mstsc，输入ip，输入用户名和密码（注意，如果是普通用户，是无法完成远程登录的，因为没有这个权限，所以，需将该用户放到remote desktop这个组中）<br>命令行实现<br>1.服务器win+r输入services.msc 找到telnet服务将其改为启动并且自动，这样每次开机后就会启动<br>2.在客户机上进入命令行窗口输入telnet +ip,输入账号和密码  ，结果发现telnet仍然关闭，这是因为没有赋予权限，将用户放到TelnetClients这个组中，如果没有就手动添加。</p>
+<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><p>文件系统：实际上就是格式化后系统重新在磁盘上划分格子的过程<br>常用的文件系统 1.FAT(windows) 2.NTFS(windows) 3.EXT(linux)<br>NTFS特点 提高磁盘读写性能，可靠，磁盘利用率高，支持单个文件大于4G，NTFS应用于文件比较大的磁盘比较合适，而FAT应用于文件比较小的磁盘，否则会比较浪费磁盘资源，以上优点都是FAT不具有的。所以我们在安装系统时通常选择NTFS</p>
+
       
 
       
