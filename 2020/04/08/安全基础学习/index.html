@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><meta name="baidu-site-verification"><title>安全基础学习 | Hexo</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body class="night"><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">Hexo</a></h1></div><p class="m-desc">心之所向，无惧无悔,<br>愿求仁得仁，复无怨怼！</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li><span class="dot">●</span><a href="/atom.xml">RSS</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">安全基础学习</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">2020-04-08</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p>1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实现虚拟机和真实机互联，可以将其看作一个真实机，但网段必须与真实机一样。<br>2.NAT模式：虚拟机使用vmnet8这块虚拟网卡，虚拟机可以连接互联网，但是虚拟机只可以访问自己的真实机，但是不能访问其他真实机 （注意由于版本原因导致我安装的xp和win2003不能连接互联网）<br>3.仅主机模式：虚拟机会使用vmnet1这块网卡，虚拟机不能够上网，只能与真实机和虚拟机互访  </p>
+<h2 id="window命令"><a href="#window命令" class="headerlink" title="window命令"></a>window命令</h2><ol>
+<li>cd :直接退到更目录下  </li>
+<li>rd :删除空文件夹  </li>
+<li>rd /s /q:无条件删除空文件夹  /s 表示包括子文件夹也就是目录树，/q表示无需提示，安静模式</li>
+<li>echo 字符串 &gt;&gt; 路径 + 文件名.扩展名 ：将字符串写入到文件夹中，写在最后面  </li>
+<li>echo  字符串 &gt; 路径 + 文件名.扩展名 ：将字符串覆盖原有内容  </li>
+<li>type 文件名.扩展名：浏览该文件</li>
+<li>del 文件名.扩展名 ：删除文件  </li>
+<li>copy con 文件名.扩展名：在控制台输入文字到文件中，回车后开始编辑，按住ctrl + z 结束编辑    </li>
+<li>del <em>.</em> /s /q :删除所有文件 /s表示包括所有空文件夹  </li>
+<li>attrib +h 文件夹  ：隐藏文件夹 h表示hidden  </li>
+<li>attrib -h 文件夹名称 ：取消隐藏文件夹  </li>
+<li>shutdown -s -t 秒:定时关机，-s表示关机 -t表示时间  </li>
+<li>shutdown -s -f -t :表示定时强制关机，有时候12命令不好用的情况下  </li>
+<li>shutdown -r -t 秒:定时重启  </li>
+<li>shutdown -a :取消所有定时  </li>
+<li>shutdown -l:注销  </li>
+<li>copy 原文件路径名 目标文件路径名 ：复制文件  </li>
+<li>./：当前路径名  </li>
+<li>../:上一级路径  </li>
+<li>move  原文件路径名 目标文件路径名：移动文件  </li>
+<li>ren 旧名 新名 ：将文件/文件夹重命名，ren是rename的缩写  </li>
+<li>/P 删除每一个文件之前提示确认。<br>/F 强制删除只读文件。<br>/S 从所有子目录删除指定文件。<br>/Q 安静模式。删除全局通配符时，不要求确认。<br>/A 根据属性选择要删除的文件。<br>attributes R 只读文件 S 系统文件   </li>
+<li>netstat -an：查看所有端口  </li>
+<li>net share ：查看所有共享文件夹列表</li>
+<li>net share 共享名 /del:关闭共享</li>
+</ol>
+<h2 id="批处理"><a href="#批处理" class="headerlink" title="批处理"></a>批处理</h2><p>批处理文件 文件名.bat<br>里面执行的使dos命令<br>开头写上@echo off 关闭回显及不显示执行过程，只显示执行结果，结尾写上pause防止闪退，&gt;nul &nbsp;2&gt;nul表示屏蔽输出，及不管执行正确与否都不会显示输出</p>
+<p>代码</p>
+<pre><code>@echo off  
+color 0a
+title my title
+echo ===========
+echo the programe
+echo============
+pause
+echo rubbish is cleaning....
+E: &gt;nul 2&gt;nul //进入E盘使用 &gt; nul 2&gt;nul是为了防止出现报错信息
+cd / &gt;nul 2&gt;nul
+rd ./s/q &gt;nul 2&gt;nul
+ping -n 127.0.0.1 &gt;nul 2&gt;nul
+echo congratulation
+pause
+如果不加&gt;nul 2nul 就会出现如下情况:  
+the programe
+请按任意键继续. . .  
+rubbish is cleaning....  
+.\$RECYCLE.BIN - 拒绝访问。  
+.\SYSTEM~1 - 拒绝访问。
+congratulation  
+请按任意键继续. . .</code></pre><p>：冒号用来区分区块的,相当于swith语句中的case，使用goto语句可以跳转到区块位置<br>@echo off<br>tile 飞鸽小程序</p>
+<h4 id="小案例"><a href="#小案例" class="headerlink" title="小案例"></a>小案例</h4><pre><code>:menu
+echo ====================
+echo     菜单
+echo 1.定时关机
+echo 2.取消定时
+echo 3.推出
+echo ====================
+set /p num = 请选择您的选项
+if &quot;%num%&quot; ==&quot;1&quot; goto 1
+if &quot;%num%&quot; ==&quot;2&quot; goto 2
+if &quot;%num%&quot; ==&quot;3&quot; goto 3
+echo 输入错误
+goto memu
+:1
+set /p a=请输入结束时间:
+shutdown -s -f -t %a%
+goto menu
+
+:2
+shutdown -a
+goto menu
+
+:3
+exit</code></pre><h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>windows服务器版本win2000，win2003，win2008，win2012<br>Linux服务器：redhat centos<br>每个账户有自己的SID（安全标识符）<br>用户SID：S-…..-500  其中前面表示系统SID，后面500表示管理员的UID为500，普通用户后面接的从1000开始。<br>查看sid值：whoami /user<br>账户密码存储位置：C:\windows\system32\config\SAM,windows系统上，默认密码最长有效期为42天  </p>
+<h4 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h4><ol>
+<li>给人使用的账户<br>administrator #管理员账户<br>guest #来宾账户  </li>
+<li>计算机系统账户<br>system  :系统账户，<font color = red>权限最大</font><br>local services :本地账户=普通用户<br>net services:本地账户= 普通账户  </li>
+</ol>
+<p>账户保存路径（家）<br>win7/win2008 C:\用户\<br>xp/win2003 C:\documents and settings\</p>
+<h4 id="用户命令"><a href="#用户命令" class="headerlink" title="用户命令"></a>用户命令</h4><p>net user ：查看所有用户<br>net user 用户名  密码 ：为用户更改密码<br>net user 用户名 密码 /add ：创建一个新用户<br>net user 用户名 /active:yes/no: 激活或者禁用用户  </p>
+<h2 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h2><p>作用：将需要赋予一样权限的用户放在一个组中，这样可以方便为该用户赋予权限  </p>
+<h4 id="内置组-权限从高到低排序"><a href="#内置组-权限从高到低排序" class="headerlink" title="内置组 权限从高到低排序####"></a>内置组 权限从高到低排序####</h4><p>administrators :管理员组<br>guests：来宾组<br>uses：用户组<br>network：网络配置组<br>print：打印机组<br>remote desktop：远程桌面组  </p>
+<h4 id="组管理命令"><a href="#组管理命令" class="headerlink" title="组管理命令"></a>组管理命令</h4><p>net localgroup:列出所有组<br>net localgroup 组名：查看该组的所有成员<br>net localgroup 组名 /add:添加该组（后面可以为该组赋予权限）<br>net localgroup 组名 用户名 /add 添加用户到组<br>net localgroup 组名 用户名 /del：删除用户<br>net localgroup 组名 /del：删除组</p>
+<h2 id="服务器远程管理"><a href="#服务器远程管理" class="headerlink" title="服务器远程管理"></a>服务器远程管理</h2><p>可视化实现<br>1，将winxp和win2003连接在同一个局域网中，以保证能ping通<br>2.将服务器的远程桌面开启，我的电脑-&gt;右键属性，远程-&gt;开启远程桌面<br>3.在客户机上win+r输入mstsc，输入ip，输入用户名和密码（注意，如果是普通用户，是无法完成远程登录的，因为没有这个权限，所以，需将该用户放到remote desktop这个组中）<br>命令行实现<br>1.服务器win+r输入services.msc 找到telnet服务将其改为启动并且自动，这样每次开机后就会启动<br>2.在客户机上进入命令行窗口输入telnet +ip,输入账号和密码  ，结果发现telnet仍然关闭，这是因为没有赋予权限，将用户放到TelnetClients这个组中，如果没有就手动添加。</p>
+<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><p><strong>文件系统</strong>：实际上就是格式化后系统重新在磁盘上划分格子的过程<br>常用的文件系统 1.FAT(windows) 2.NTFS(windows) 3.EXT(linux)<br>NTFS特点 提高磁盘读写性能，可靠，磁盘利用率高，支持单个文件大于4G，NTFS应用于文件比较大的磁盘比较合适，而FAT应用于文件比较小的磁盘，否则会比较浪费磁盘资源，以上优点都是FAT不具有的。所以我们在安装系统时通常选择NTFS<br><strong>修改NTFS权限</strong><br>特殊权限：控制文件权限列表的权限<br>当用户同时属于多个组时，权限是累加的，即该用户拥有所属于的所有组的权限<br><strong>拒绝权限最大：</strong>当用户a属于b组，但b组中的文件不想让a看，所以在权限中添加a用户然后权限选择全部拒绝。<br>强制继承：文件夹下的各个子文件夹权限不同，现在需要将子文件夹的权限都改成父文件夹的权限，进行权限同一。解决：文件右键，属性，安全，高级，勾选第二个对号。<br><strong>文件复制对权限的影响：</strong>同一级文件复制后，被复制的文件权限被改变为父级的文件权限，同一级的文件剪切后，被剪切的文件放到文件后权限不变。不是同一级的文件复制或者剪切后出现被复制的文件权限被更改为父级文件夹的权限。<br><strong>隐藏共享文件夹</strong>：如果某个文件夹不想要被别人看见，填写共享名，并且后面加上$符号，例如share$，那么访问者就不会看见该文件夹，如果想要被指定的人访问，则让访问者在后面加上隐藏的文件的名称，例如 \+ip+\share$<br><strong>列出所有共享文件夹</strong>  net share  所有盘符默认共享<br><strong>关闭共享</strong> net share 共享名 /del，但是开机之后仍然默认共享所有盘符 ，如果想要有些东西共享，有些不共享，解决：在删除共享之后，更改注册表将自启动共享关闭，即在注册表中找到 hkey_local_machine\system\currentcontrolset\services\lanmanserver\parameters\右键建立DWORD文件，名称为AutoShareServer,值为0，这样下次开机时就不会默认开启所有共享<br>计算机只作为网页服务器，关闭共享服务，则在服务中，将server这个服务关闭即可。这样该计算机就不会提供共享服务。  </p>
+<h2 id="PE破解系统"><a href="#PE破解系统" class="headerlink" title="PE破解系统"></a>PE破解系统</h2><p>u深度增强版</p>
+</div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">John Doe</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/04/08/安全基础学习/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="http://yoursite.com">John Doe的博客</a>！</span></div></blockquote></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机设置"><span class="toc-number">1.</span> <span class="toc-text">虚拟机设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window命令"><span class="toc-number">2.</span> <span class="toc-text">window命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批处理"><span class="toc-number">3.</span> <span class="toc-text">批处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小案例"><span class="toc-number">3.0.1.</span> <span class="toc-text">小案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户管理"><span class="toc-number">4.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#账户"><span class="toc-number">4.0.1.</span> <span class="toc-text">账户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户命令"><span class="toc-number">4.0.2.</span> <span class="toc-text">用户命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组管理"><span class="toc-number">5.</span> <span class="toc-text">组管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内置组-权限从高到低排序"><span class="toc-number">5.0.1.</span> <span class="toc-text">内置组 权限从高到低排序####</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组管理命令"><span class="toc-number">5.0.2.</span> <span class="toc-text">组管理命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器远程管理"><span class="toc-number">6.</span> <span class="toc-text">服务器远程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NTFS权限"><span class="toc-number">7.</span> <span class="toc-text">NTFS权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PE破解系统"><span class="toc-number">8.</span> <span class="toc-text">PE破解系统</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="next" href="/2020/04/06/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">网络安全学习 &gt;</a></div><div id="valine-comment"><style type="text/css">.night .v[data-class=v] a { color: #0F9FB4 !important; }
+.night .v[data-class=v] a:hover { color: #216C73 !important; }
+.night .v[data-class=v] li { list-style: inherit; }
+.night .v[data-class=v] .vwrap { border: 1px solid #223441; border-radius: 0; }
+.night .v[data-class=v] .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.night .v[data-class=v] .vbtn { border-radius: 0; background: none; }
+.night .v[data-class=v] .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.night .v[data-class=v] .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.night .v[data-class=v] .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre,.night .v[data-class=v] .vlist .vcard .vhead .vsys { background: #203240 !important; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre { color: #F0F0F0; font-size: 95%; }
+.v[data-class=v] .vcards .vcard .vh {border-bottom-color: #223441; }
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:before {background: linear-gradient(180deg,rgba(38,57,73,.4),rgba(38,57,73,.9));}
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:after {background: rgba(38,57,73,.9)}
+</style><div id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'',
+  appKey:'',
+  lang: 'zh-cn',
+  placeholder:'ヾﾉ≧∀≦)o Come on, say something...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">Hexo</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>
