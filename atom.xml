@@ -3,7 +3,7 @@
   <title>我是良民</title>
   
   
-  <link href="/atom.xml" rel="self"/>
+  <link href="/source/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2020-07-21T14:03:18.890Z</updated>
