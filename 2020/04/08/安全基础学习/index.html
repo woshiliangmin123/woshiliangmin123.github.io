@@ -1,5 +1,92 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="我是良民的博客"><meta name="baidu-site-verification"><title>安全基础学习 | 我是良民</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="我是良民" type="application/atom+xml">
-</head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body class="night"><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">我是良民</a></h1></div><p class="m-desc">心之所向，无惧无悔,<br>愿求仁得仁，复无怨怼！</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li><span class="dot">●</span><a href="/atom.xml">RSS</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">安全基础学习</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">2020-04-08</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p>vmnet实际上表示虚拟交换机，一共vmnet1-vmnet19，将系统连接到某个交换机上，相当于机房中的真实机有一根网线连接到真实交换机上。每个vmnet对应一个虚拟网卡。其中vmnet0表示的是真实机所连接的交换机，如果连接到vmnet0，则相当于该系统从虚拟机跳出来直接连接到真实交换机，可以使用该虚拟机完全当作真实机使用。<br>1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实现虚拟机和真实机互联，可以将其看作一个真实机，但网段必须与真实机一样。<br>2.NAT模式：虚拟机使用vmnet8这块虚拟网卡，虚拟机可以连接互联网，但是虚拟机只可以访问自己的真实机，但是不能访问其他真实机 （注意由于版本原因导致我安装的xp和win2003不能连接互联网）<br>3.仅主机模式：虚拟机会使用vmnet1这块网卡，虚拟机不能够上网，只能与真实机和虚拟机互访<br>4.网卡：vmnet0实际上就是桥接，即虚拟机直接连接到真实网络<br>虚拟机不能上网的原因，配置虚拟网络编辑器，更改网络设置，使用桥接网络，并且在桥接网络中有几个选项，分别为蓝牙连接，无线网卡连接，有线连接等，这里我们设置成自动即可，或者设置成对应的情况。虚拟机不能上网可能是虚拟机自动选择网卡时选择错误，所以在桥接网络中如果真实机使用无线网络，虚拟机就配置无线网卡<br>镜像下载网站：<a href="http://www.itellyou.com" target="_blank" rel="noopener">www.itellyou.com</a><br>下载地址二：<a href="https://blog.csdn.net/z_xindong/article/details/86776475" target="_blank" rel="noopener">https://blog.csdn.net/z_xindong/article/details/86776475</a></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>安全基础学习 | 我是良民</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="虚拟机设置vmnet实际上表示虚拟交换机，一共vmnet1-vmnet19，将系统连接到某个交换机上，相当于机房中的真实机有一根网线连接到真实交换机上。每个vmnet对应一个虚拟网卡。其中vmnet0表示的是真实机所连接的交换机，如果连接到vmnet0，则相当于该系统从虚拟机跳出来直接连接到真实交换机，可以使用该虚拟机完全当作真实机使用。1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安全基础学习">
+<meta property="og:url" content="http://yoursite.com/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="我是良民">
+<meta property="og:description" content="虚拟机设置vmnet实际上表示虚拟交换机，一共vmnet1-vmnet19，将系统连接到某个交换机上，相当于机房中的真实机有一根网线连接到真实交换机上。每个vmnet对应一个虚拟网卡。其中vmnet0表示的是真实机所连接的交换机，如果连接到vmnet0，则相当于该系统从虚拟机跳出来直接连接到真实交换机，可以使用该虚拟机完全当作真实机使用。1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-08T13:00:30.205Z">
+<meta property="article:modified_time" content="2020-07-16T14:38:40.473Z">
+<meta property="article:author" content="我是良民">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="我是良民" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我是良民</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-安全基础学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-04-08T13:00:30.205Z" itemprop="datePublished">2020-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安全基础学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p>vmnet实际上表示虚拟交换机，一共vmnet1-vmnet19，将系统连接到某个交换机上，相当于机房中的真实机有一根网线连接到真实交换机上。每个vmnet对应一个虚拟网卡。其中vmnet0表示的是真实机所连接的交换机，如果连接到vmnet0，则相当于该系统从虚拟机跳出来直接连接到真实交换机，可以使用该虚拟机完全当作真实机使用。<br>1.使用桥接模式：使用的真实机的网卡，可以连接互联网也可以实现虚拟机和真实机互联，可以将其看作一个真实机，但网段必须与真实机一样。<br>2.NAT模式：虚拟机使用vmnet8这块虚拟网卡，虚拟机可以连接互联网，但是虚拟机只可以访问自己的真实机，但是不能访问其他真实机 （注意由于版本原因导致我安装的xp和win2003不能连接互联网）<br>3.仅主机模式：虚拟机会使用vmnet1这块网卡，虚拟机不能够上网，只能与真实机和虚拟机互访<br>4.网卡：vmnet0实际上就是桥接，即虚拟机直接连接到真实网络<br>虚拟机不能上网的原因，配置虚拟网络编辑器，更改网络设置，使用桥接网络，并且在桥接网络中有几个选项，分别为蓝牙连接，无线网卡连接，有线连接等，这里我们设置成自动即可，或者设置成对应的情况。虚拟机不能上网可能是虚拟机自动选择网卡时选择错误，所以在桥接网络中如果真实机使用无线网络，虚拟机就配置无线网卡<br>镜像下载网站：<a href="http://www.itellyou.com" target="_blank" rel="noopener">www.itellyou.com</a><br>下载地址二：<a href="https://blog.csdn.net/z_xindong/article/details/86776475" target="_blank" rel="noopener">https://blog.csdn.net/z_xindong/article/details/86776475</a></p>
 <h2 id="window命令"><a href="#window命令" class="headerlink" title="window命令"></a>window命令</h2><ol>
 <li>cd :直接退到更目录下  </li>
 <li>rd :删除空文件夹  </li>
@@ -195,42 +282,131 @@ exit</code></pre><h2 id="用户管理"><a href="#用户管理" class="headerlink
 <h3 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h3><p>/var/log<br>分类：系统日志messages，登录日志secue，程序日志  </p>
 <h3 id="web服务"><a href="#web服务" class="headerlink" title="web服务"></a>web服务</h3><p><strong>lamp平台</strong>，linux，apache（httpd），mysql，php<br>条件：ip 端口（80或者443）<br>1.启动httpd服务<br> service httpd start<br>2.验证是否开启<br> ss -antpl | grep 80<br>3.主页建立<br>cd /var/www/html  ,vim index.html书写html源码<br>4.关闭防火墙<br>setenforce 0<br>5.主配置文件分析<br>vim /etc/httpd/conf/httpd.conf<br>6.访问控制设定<br>过<br>7.安装MySQL数据库<br>yun install mysql -server -y,启动，server mysql start，设置账号密码，mysqladmin -u root -p password “123465”，登录 mysql -u root -p<br>8.安装php<br>yum install php<br>9.安装php链接数据库插件<br>yum install php-mysql<br><strong>lnmp平台</strong><br>n代表nginx，它的特点是承载压力强  </p>
 <h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p>1MB=8*Mb 一百兆宽带等于100/8的网速<br>python中print函数是自带换行的。</p>
-</div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">我是良民</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/04/08/安全基础学习/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="http://yoursite.com">我是良民的博客</a>！</span></div></blockquote></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机设置"><span class="toc-number">1.</span> <span class="toc-text">虚拟机设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window命令"><span class="toc-number">2.</span> <span class="toc-text">window命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批处理"><span class="toc-number">3.</span> <span class="toc-text">批处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小案例"><span class="toc-number">3.0.1.</span> <span class="toc-text">小案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户管理"><span class="toc-number">4.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#账户"><span class="toc-number">4.0.1.</span> <span class="toc-text">账户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户命令"><span class="toc-number">4.0.2.</span> <span class="toc-text">用户命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组管理"><span class="toc-number">5.</span> <span class="toc-text">组管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内置组-权限从高到低排序"><span class="toc-number">5.0.1.</span> <span class="toc-text">内置组 权限从高到低排序####</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组管理命令"><span class="toc-number">5.0.2.</span> <span class="toc-text">组管理命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器远程管理"><span class="toc-number">6.</span> <span class="toc-text">服务器远程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NTFS权限"><span class="toc-number">7.</span> <span class="toc-text">NTFS权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PE破解系统"><span class="toc-number">8.</span> <span class="toc-text">PE破解系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP"><span class="toc-number">9.</span> <span class="toc-text">DHCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS服务器"><span class="toc-number">10.</span> <span class="toc-text">DNS服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IIS"><span class="toc-number">11.</span> <span class="toc-text">IIS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FTP"><span class="toc-number">12.</span> <span class="toc-text">FTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域"><span class="toc-number">13.</span> <span class="toc-text">域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PKI技术"><span class="toc-number">14.</span> <span class="toc-text">PKI技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP攻击"><span class="toc-number">15.</span> <span class="toc-text">ARP攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP防御"><span class="toc-number">15.1.</span> <span class="toc-text">ARP防御</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN"><span class="toc-number">16.</span> <span class="toc-text">VLAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACL"><span class="toc-number">17.</span> <span class="toc-text">ACL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT"><span class="toc-number">18.</span> <span class="toc-text">NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPN"><span class="toc-number">19.</span> <span class="toc-text">VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPsecVPN"><span class="toc-number">19.1.</span> <span class="toc-text">IPsecVPN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙"><span class="toc-number">20.</span> <span class="toc-text">防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP攻击-1"><span class="toc-number">21.</span> <span class="toc-text">ARP攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#木马"><span class="toc-number">22.</span> <span class="toc-text">木马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描技术"><span class="toc-number">23.</span> <span class="toc-text">扫描技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux"><span class="toc-number">24.</span> <span class="toc-text">linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux命令"><span class="toc-number">25.</span> <span class="toc-text">linux命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令的格式"><span class="toc-number">25.1.</span> <span class="toc-text">命令的格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压缩"><span class="toc-number">25.2.</span> <span class="toc-text">解压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim编辑器"><span class="toc-number">25.3.</span> <span class="toc-text">vim编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux软件安装"><span class="toc-number">25.4.</span> <span class="toc-text">linux软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#源码包："><span class="toc-number">25.4.1.</span> <span class="toc-text">源码包：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#封装后的软件包"><span class="toc-number">25.4.2.</span> <span class="toc-text">封装后的软件包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#卸载vim编辑器"><span class="toc-number">25.4.3.</span> <span class="toc-text">卸载vim编辑器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux操作系统中的用户分类"><span class="toc-number">25.5.</span> <span class="toc-text">linux操作系统中的用户分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用户的组信息"><span class="toc-number">25.5.1.</span> <span class="toc-text">用户的组信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件权限"><span class="toc-number">25.6.</span> <span class="toc-text">文件权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络配置"><span class="toc-number">25.7.</span> <span class="toc-text">网络配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志文件"><span class="toc-number">25.8.</span> <span class="toc-text">日志文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web服务"><span class="toc-number">25.9.</span> <span class="toc-text">web服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python"><span class="toc-number">26.</span> <span class="toc-text">python</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2020/07/17/Python%E5%AD%A6%E4%B9%A0/">&lt; Python学习</a><a class="next" href="/2020/04/06/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">网络安全学习 &gt;</a></div><div id="valine-comment"><style type="text/css">.night .v[data-class=v] a { color: #0F9FB4 !important; }
-.night .v[data-class=v] a:hover { color: #216C73 !important; }
-.night .v[data-class=v] li { list-style: inherit; }
-.night .v[data-class=v] .vwrap { border: 1px solid #223441; border-radius: 0; }
-.night .v[data-class=v] .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
-.night .v[data-class=v] .vbtn { border-radius: 0; background: none; }
-.night .v[data-class=v] .vlist .vcard .vh { border-bottom-color: #293D4E; }
-.night .v[data-class=v] .vwrap .vheader .vinput { border-bottom-color: #223441; }
-.night .v[data-class=v] .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
-.night .v[data-class=v] code, .night .v[data-class=v] pre,.night .v[data-class=v] .vlist .vcard .vhead .vsys { background: #203240 !important; }
-.night .v[data-class=v] code, .night .v[data-class=v] pre { color: #F0F0F0; font-size: 95%; }
-.v[data-class=v] .vcards .vcard .vh {border-bottom-color: #223441; }
-.night .v[data-class=v] .vcards .vcard .vcontent.expand:before {background: linear-gradient(180deg,rgba(38,57,73,.4),rgba(38,57,73,.9));}
-.night .v[data-class=v] .vcards .vcard .vcontent.expand:after {background: rgba(38,57,73,.9)}
-</style><div id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
-var verify = 'false' == true ? true : false;
-var GUEST_INFO = ['nick','mail','link'];
-var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-  return GUEST_INFO.indexOf(item) > -1
-});
-guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
-window.valine = new Valine({
-  el:'#vcomment',
-  notify:notify,
-  verify:verify,
-  appId:'',
-  appKey:'',
-  lang: 'zh-cn',
-  placeholder:'ヾﾉ≧∀≦)o Come on, say something...',
-  avatar:'identicon',
-  guest_info:guest_info,
-  pageSize:'10'
-})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">我是良民</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-    search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" data-id="ckdchyyiw0003xguxf4xj3a4m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/17/Python%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/06/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">网络安全学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/21/%E6%9C%AA%E5%91%BD%E5%90%8D/">未命名</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/20/test1/">test1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/Python%E5%AD%A6%E4%B9%A0/">Python学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/08/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">安全基础学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/06/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">网络安全学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 我是良民<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
