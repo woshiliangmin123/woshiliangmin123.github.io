@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-02T09:02:29.242Z</updated>
+  <updated>2020-08-02T09:18:13.704Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>这是最后的测试</title>
+    <link href="http://yoursite.com/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/"/>
+    <id>http://yoursite.com/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/</id>
+    <published>2020-08-02T09:17:17.431Z</published>
+    <updated>2020-08-02T09:18:13.704Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试1：</p><p><img src="/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/assets/image-20200802171743214.png" alt="image-20200802171743214"></p><p>测试二</p><p><img src="/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/assets/image-20200802171759649.png" alt="image-20200802171759649"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;测试1：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/assets/image-20200802171743214.png&quot; alt
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>aaa</title>
