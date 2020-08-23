@@ -4,63 +4,11 @@
   
     
     <entry>
-      <title>这是最后的测试</title>
-      <link href="/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/"/>
-      <url>/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<p>测试1：</p><p><img src="/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/assets/image-20200802171743214.png" alt="image-20200802171743214"></p><p>测试二</p><p><img src="/2020/08/02/%E8%BF%99%E6%98%AF%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%8B%E8%AF%95/assets/image-20200802171759649.png" alt="image-20200802171759649"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>aaa</title>
-      <link href="/2020/08/02/aaa/"/>
-      <url>/2020/08/02/aaa/</url>
-      
-        <content type="html"><![CDATA[<p><img src="/2020/08/02/aaa/image-20200802170222823.png" alt="image-20200802170222823"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>未命名</title>
-      <link href="/2020/07/21/%E6%9C%AA%E5%91%BD%E5%90%8D/"/>
-      <url>/2020/07/21/%E6%9C%AA%E5%91%BD%E5%90%8D/</url>
-      
-        <content type="html"><![CDATA[<p><img src="/2020/07/21/%E6%9C%AA%E5%91%BD%E5%90%8D/image-20200802165922522.png" alt="image-20200802165922522"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test1</title>
-      <link href="/2020/07/20/test1/"/>
-      <url>/2020/07/20/test1/</url>
-      
-        <content type="html"><![CDATA[<p>图片A</p><p><img src="/2020/07/20/test1/assets/image-20200720234511893.png" alt="image-20200720234511893"></p><p>图片B<img src="/2020/07/20/test1/assets/image-20200720234522633.png" alt="image-20200720234522633"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Python学习</title>
       <link href="/2020/07/17/Python%E5%AD%A6%E4%B9%A0/"/>
       <url>/2020/07/17/Python%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<hr><hr><h2 id="程序一："><a href="#程序一：" class="headerlink" title="程序一："></a>程序一：</h2><pre><code>&gt; userName = input(&quot;请输入用户名&quot;);&gt; password = input(&quot;请输入密码&quot;);&gt; if &quot;tom&quot; == userName and &quot;123456&quot; == password:          //and代表与，or代表或，not()代表非，if后面不需要加括号，通过冒号结束判断语句。&gt;     print(&quot;用户名：&quot;+ userName + &quot;密码：&quot;+ password);    //注意：if语句下面空4格表示执行if判断结果后的执行语句。&gt; else :&gt;     print(&quot;你的用户名或者密码错误&quot;);</code></pre><h2 id="程序二，成绩判断"><a href="#程序二，成绩判断" class="headerlink" title="程序二，成绩判断"></a>程序二，成绩判断</h2><pre><code>&gt; core = int(input(&quot;请输入成绩&quot;));  //因为输入的字符属于字符串，所以需要使用int()，将输入的字符串转换为int类型，否则报错。&gt; if core &lt; 60:&gt;     print(&quot;成绩不合格&quot;);&gt; elif core &gt;= 60 and core &lt; 70:  //这里elif代表的就是java中的else if 分支判断。&gt;     print(&quot;成绩合格&quot;);&gt; elif core &gt;= 70 and core &lt; 80:&gt;     print(&quot;成绩中等&quot;);&gt; elif core &gt;= 80 and core &lt; 90:&gt;     print(&quot;成绩上等&quot;);&gt; elif core &gt;= 90 and core &lt; 100:&gt;     print(&quot;成绩优秀&quot;);&gt; else:&gt;     print(&quot;成绩输入错误&quot;);</code></pre><h2 id="程序三：字符串赋值"><a href="#程序三：字符串赋值" class="headerlink" title="程序三：字符串赋值"></a>程序三：字符串赋值</h2><pre><code>&gt; string = &quot;python&quot;;     //每个字符串中的字符对应一个索引，从0到5&gt; print(string[0:2]);    //取索引开始为0，个数为2的字符，即“py”，&gt; print(string[0:1000]); //结果为python，与String[0:6]结果相同&gt; print(string[0:1000:2]);//结果为“pto”，从p开始，每次中间隔两个进行取值（步长为2）。&gt; print(string[-1]);      //结果为‘n’，字符串可以倒着进行索引编码。从-1开始。&gt; print(string[-1:-1000:-1]);//结果为nohtyp ，反向取值。&gt; if &quot;py&quot; in string:      //结果为&quot;正确&quot;,表示string这个字符串中含有py两个字符&gt;     print(&quot;正确&quot;); </code></pre><h2 id="程序四"><a href="#程序四" class="headerlink" title="程序四"></a>程序四</h2><p><img src="/2020/07/17/Python%E5%AD%A6%E4%B9%A0/D:%5Cksdler%5CinstallDir%5Cblog%5Csource%5C_posts%5Cimages%5Cimage-20200719232842284.png" alt="image-20200719232842284"></p>]]></content>
+        <content type="html"><![CDATA[<hr><hr><h2 id="程序一："><a href="#程序一：" class="headerlink" title="程序一："></a>程序一：</h2><pre><code>&gt; userName = input(&quot;请输入用户名&quot;);&gt; password = input(&quot;请输入密码&quot;);&gt; if &quot;tom&quot; == userName and &quot;123456&quot; == password:          //and代表与，or代表或，not()代表非，if后面不需要加括号，通过冒号结束判断语句。&gt;     print(&quot;用户名：&quot;+ userName + &quot;密码：&quot;+ password);    //注意：if语句下面空4格表示执行if判断结果后的执行语句。&gt; else :&gt;     print(&quot;你的用户名或者密码错误&quot;);</code></pre><h2 id="程序二，成绩判断"><a href="#程序二，成绩判断" class="headerlink" title="程序二，成绩判断"></a>程序二，成绩判断</h2><pre><code>&gt; core = int(input(&quot;请输入成绩&quot;));  //因为输入的字符属于字符串，所以需要使用int()，将输入的字符串转换为int类型，否则报错。&gt; if core &lt; 60:&gt;     print(&quot;成绩不合格&quot;);&gt; elif core &gt;= 60 and core &lt; 70:  //这里elif代表的就是java中的else if 分支判断。&gt;     print(&quot;成绩合格&quot;);&gt; elif core &gt;= 70 and core &lt; 80:&gt;     print(&quot;成绩中等&quot;);&gt; elif core &gt;= 80 and core &lt; 90:&gt;     print(&quot;成绩上等&quot;);&gt; elif core &gt;= 90 and core &lt; 100:&gt;     print(&quot;成绩优秀&quot;);&gt; else:&gt;     print(&quot;成绩输入错误&quot;);</code></pre><h2 id="程序三：字符串赋值"><a href="#程序三：字符串赋值" class="headerlink" title="程序三：字符串赋值"></a>程序三：字符串赋值</h2><pre><code>&gt; string = &quot;python&quot;;     //每个字符串中的字符对应一个索引，从0到5&gt; print(string[0:2]);    //取索引开始为0，个数为2的字符，即“py”，&gt; print(string[0:1000]); //结果为python，与String[0:6]结果相同&gt; print(string[0:1000:2]);//结果为“pto”，从p开始，每次中间隔两个进行取值（步长为2）。&gt; print(string[-1]);      //结果为‘n’，字符串可以倒着进行索引编码。从-1开始。&gt; print(string[-1:-1000:-1]);//结果为nohtyp ，反向取值。&gt; if &quot;py&quot; in string:      //结果为&quot;正确&quot;,表示string这个字符串中含有py两个字符&gt;     print(&quot;正确&quot;); </code></pre><h2 id="程序四"><a href="#程序四" class="headerlink" title="程序四"></a>程序四</h2><pre><code>#列表：也就是其他编程语言中的数组#元组（tuple）：与列表是差不多，也是数组，但是和列表的区别是元组中的元素不能改变，而列表中的元素可以追加可以改变。#字典： 相当于java中的列表，里面的保存方式是键值对#列表UserList=[&quot;tom&quot;,&quot;jerry&quot;];PassList = [&quot;123&quot;,&quot;456&quot;];#元组userTuple = (&quot;tom&quot;,&quot;jerry&quot;);passTuple = (&quot;123&quot;,&quot;456&quot;);UserName = input(&quot;请输入用户名&quot;);PassWord = input(&quot;请输入密码&quot;);userName = input(&quot;请输入用户名&quot;);passWord = input(&quot;请输入密码&quot;);if userName in userTuple and passWord in passTuple:    print(&quot;欢迎&quot;+ userName +&quot;进入系统&quot;);else :    print(&quot;您输入的用户名或者密码有误&quot;);if UserName in UserList and PassWord in PassList:    print(&quot;欢迎&quot;+ UserName +&quot;进入系统&quot;);else :    print(&quot;您输入的用户名或者密码有误&quot;);#上面两个方法有缺陷，就是用户名和密码不是一一对应的，tom可以对应123，同时可以对应456，jerry同样，所以下面引用字典。#字典useDict = {&quot;tom&quot;:&quot;123&quot;,&quot;jerry&quot;:&quot;456&quot;};userName3 = input(&quot;请输入用户名&quot;);passWord3 = input(&quot;请输入密码&quot;);if userName3 in useDict and passWord3 == useDict[userName3]:# 注意键和值的取值方式，键通过键的名字进行取值，值是通过键进行取值    print(&quot;欢迎&quot; + userName3 + &quot;登录&quot;);else :    print(&quot;您的用户名或者密码错误&quot;);# 元组和列表的区别UserList.append(&quot;Bob&quot;);print(UserList);</code></pre><h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><pre><code>while  条件语句：​    执行语句1​    执行语句2​    ...</code></pre><h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><pre><code>#for循环：根据变量赋值的次数进行循环#1.字符串赋值for item in &quot;python&quot;:    print(&quot;hello&quot; + item);#结果为如下，这是因为item被赋值了6次&#39;&#39;&#39;hellophelloyhellothellohhelloohellon&#39;&#39;&#39;#2.列表赋值for item in [&quot;tom&quot;,&quot;Bob&quot;,&quot;jerry&quot;]:    print(&quot;hello&quot;+ item);#结果为如下,列表中有三个元素，所以执行3次&#39;&#39;&#39;hellotomhelloBobhellojerry&#39;&#39;&#39;#3.元组同理#4.字典dict1 = {&quot;tom&quot;:&quot;123&quot;,&quot;Bob&quot;:&quot;456&quot;,&quot;jerry&quot;:&quot;789&quot;};for item in dict1:    print(&quot;hello&quot;+item);    print(&quot;hello&quot;+dict1[item]);#结果如下，item被赋予的是键，若想要获取值，通过item这个键进行获取&#39;&#39;&#39;hellotomhello123helloBobhello456hellojerryhello789&#39;&#39;&#39;#4.上面三种比较麻烦，如果想要100次循环怎么办for item in range(100):#注意如果没有range函数，那么将会报错，int型不能作为赋值变量，range的作用就是将0到99这100个数变为含有100个元素的列表    print(&quot;hello&quot; + str(item));#item为int型无法与hello进行拼接，所以转换为str型##结果为如下，是0到99，如果想要item为1到100，则改为range(1,101)&#39;&#39;&#39;hello10hello11hello12hello13hello14hello15hello16hello17hello18hello19hello20...&#39;&#39;&#39;</code></pre>]]></content>
       
       
       
