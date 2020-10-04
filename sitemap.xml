@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/10/01/CTF/</loc>
+    
+    <lastmod>2020-10-04T12:49:49.704Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/07/17/Python%E5%AD%A6%E4%B9%A0/</loc>
     
-    <lastmod>2020-08-23T09:45:41.457Z</lastmod>
+    <lastmod>2020-08-29T15:34:52.293Z</lastmod>
     
   </url>
   
