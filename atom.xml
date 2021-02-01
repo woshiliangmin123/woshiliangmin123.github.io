@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-02-01T11:55:05.246Z</updated>
+  <updated>2021-02-01T12:04:08.083Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,20 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>c#学习</title>
-    <link href="http://yoursite.com/2021/02/01/c#%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2021/02/01/c#%E5%AD%A6%E4%B9%A0/</id>
+    <title>csharp学习</title>
+    <link href="http://yoursite.com/2021/02/01/csharp%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2021/02/01/csharp%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-02-01T11:54:59.489Z</published>
-    <updated>2021-02-01T11:55:05.246Z</updated>
+    <updated>2021-02-01T12:04:08.083Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="vs设置"><a href="#vs设置" class="headerlink" title="vs设置"></a>vs设置</h3><p>vs中F6键：生成语法错误，可以定位到错误位置。</p><p>设置当前启动项目，点击解决资源管理器，右击，属性，启动项目设置为当前选定内容。</p><p>多行注释：ctrl + k+c,取消多行注释：ctrl +k +u</p><p>激活key：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="csharp学习"><a href="#csharp学习" class="headerlink" title="csharp学习"></a>csharp学习</h1><p>vs中F6键：生成语法错误，可以定位到错误位置。</p><p>设置当前启动项目，点击解决资源管理器，右击，属性，启动项目设置为当前选定内容。</p><p>多行注释：ctrl + k+c,取消多行注释：ctrl +k +u</p><p>激活key：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;vs设置&quot;&gt;&lt;a href=&quot;#vs设置&quot; class=&quot;headerlink&quot; title=&quot;vs设置&quot;&gt;&lt;/a&gt;vs设置&lt;/h3&gt;&lt;p&gt;vs中F6键：生成语法错误，可以定位到错误位置。&lt;/p&gt;
-&lt;p&gt;设置当前启动项目，点击解决资源管理器，右击，属性，启动项目设
+        &lt;h1 id=&quot;csharp学习&quot;&gt;&lt;a href=&quot;#csharp学习&quot; class=&quot;headerlink&quot; title=&quot;csharp学习&quot;&gt;&lt;/a&gt;csharp学习&lt;/h1&gt;&lt;p&gt;vs中F6键：生成语法错误，可以定位到错误位置。&lt;/p&gt;
+&lt;p&gt;设置当前启动项目，点击解决资
       
     
     </summary>

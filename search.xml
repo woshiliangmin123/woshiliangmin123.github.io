@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>c#学习</title>
-      <link href="/2021/02/01/c#%E5%AD%A6%E4%B9%A0/"/>
-      <url>/2021/02/01/c#%E5%AD%A6%E4%B9%A0/</url>
+      <title>csharp学习</title>
+      <link href="/2021/02/01/csharp%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2021/02/01/csharp%E5%AD%A6%E4%B9%A0/</url>
       
-        <content type="html"><![CDATA[<h3 id="vs设置"><a href="#vs设置" class="headerlink" title="vs设置"></a>vs设置</h3><p>vs中F6键：生成语法错误，可以定位到错误位置。</p><p>设置当前启动项目，点击解决资源管理器，右击，属性，启动项目设置为当前选定内容。</p><p>多行注释：ctrl + k+c,取消多行注释：ctrl +k +u</p><p>激活key：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="csharp学习"><a href="#csharp学习" class="headerlink" title="csharp学习"></a>csharp学习</h1><p>vs中F6键：生成语法错误，可以定位到错误位置。</p><p>设置当前启动项目，点击解决资源管理器，右击，属性，启动项目设置为当前选定内容。</p><p>多行注释：ctrl + k+c,取消多行注释：ctrl +k +u</p><p>激活key：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>]]></content>
       
       
       
