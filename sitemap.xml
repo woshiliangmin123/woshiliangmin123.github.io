@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2021/03/01/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</loc>
+    
+    <lastmod>2021-03-03T15:00:26.281Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2021/02/01/csharp%E5%AD%A6%E4%B9%A0/</loc>
     
-    <lastmod>2021-02-19T15:27:20.585Z</lastmod>
+    <lastmod>2021-03-03T14:59:34.797Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2021/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    
+    <lastmod>2021-03-02T15:05:11.149Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2021/02/28/winform%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2021-02-28T10:58:24.995Z</lastmod>
     
   </url>
   

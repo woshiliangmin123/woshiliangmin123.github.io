@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="我是良民的博客"><meta name="baidu-site-verification"><title>winform学习 | 我是良民</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="我是良民" type="application/atom+xml">
+</head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body class="night"><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">我是良民</a></h1></div><p class="m-desc">心之所向，无惧无悔,<br>愿求仁得仁，复无怨怼！</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li><span class="dot">●</span><a href="/atom.xml">RSS</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">winform学习</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2021/02/28/winform%E5%AD%A6%E4%B9%A0/">2021-02-28</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>有些控件是不能添加到图形界面上的，例如time控件，tooltip控件，到时候我们直接使用即可。</p>
+<h3 id="Progressbar（进度条）控件"><a href="#Progressbar（进度条）控件" class="headerlink" title="Progressbar（进度条）控件"></a>Progressbar（进度条）控件</h3><p><img src="/2021/02/28/winform%E5%AD%A6%E4%B9%A0/assets/image-20210228133139651.png" alt="image-20210228133139651"></p>
+<p>​        基本属性：MaxNum最大值，</p>
+<p>​                            minNum最小值，</p>
+<p>​                            value，当前值。</p>
+<p>​                            step。每次调用PerformStep方法时的进度。默认为10，调用一次增加10%，但是这种方式是固定增量，在实际应用中不可能这样应用 。所以通过操控value值进行进度</p>
+<pre><code> private void button1_Click(object sender, EventArgs e)
+        {
+            //为button1设置后退
+            if (progressBar1.Value &gt; progressBar1.Minimum)
+            {
+                progressBar1.Value = progressBar1.Value - progressBar1.Step;
+                button1.Text = progressBar1.Value.ToString();
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //为button2设置前进
+            //progressBar1.PerformStep();这种方法不够实际，因为他是每次固定增加一定的step
+
+            //使用下面这种方法，通过操控value值进行增加
+            for (int i=0; i &lt;= progressBar1.Maximum; i++)
+               {  
+               progressBar1.Value = i;
+                }
+
+            button1.Text = progressBar1.Value.ToString();
+
+        }</code></pre><h3 id="NumericUpDown（数字输入框）控件"><a href="#NumericUpDown（数字输入框）控件" class="headerlink" title="NumericUpDown（数字输入框）控件"></a>NumericUpDown（数字输入框）控件</h3><p>​    属性：只能输入数字，负号，小数点</p>
+<p>​            textAlin：设置文本显示的位置，左对齐，居中，右对齐</p>
+<p>​            Hexadecimal：以16进制显示数据</p>
+<p>​            Increment：按向上或向下键进行增减。</p>
+<p><img src="/2021/02/28/winform%E5%AD%A6%E4%B9%A0/assets/image-20210228135015953.png" alt="image-20210228135015953"></p>
+<h3 id="ToolTip（提示信息）控件"><a href="#ToolTip（提示信息）控件" class="headerlink" title="ToolTip（提示信息）控件"></a>ToolTip（提示信息）控件</h3><p>​            toolTip1.InitialDelay = 1000;//悬停时间<br>​            toolTip1.AutoPopDelay = 1000;//提示保存的时间<br>​            toolTip1.AutomaticDelay = 1000;//延迟时间<br>​            toolTip1.ReshowDelay = 1000;//转换到其他控件时的时间间隔；</p>
+<h3 id="Notifylcon-托盘控件"><a href="#Notifylcon-托盘控件" class="headerlink" title="Notifylcon(托盘控件)"></a>Notifylcon(托盘控件)</h3><p>就是点击最小化之后显示在桌面右下角的最小化窗口中，例如360等，注意只有为控件添加背景图片之后才能够看得见。如果想要双击之后仍然能够打开原来的窗口，则在事件doubleClick中写入Windowstate = FormWindowState.Normal即可</p>
+<h3 id="ConTextMenuStrip（右键之后显示菜单）控件"><a href="#ConTextMenuStrip（右键之后显示菜单）控件" class="headerlink" title="ConTextMenuStrip（右键之后显示菜单）控件"></a>ConTextMenuStrip（右键之后显示菜单）控件</h3><h3 id="timer（时钟）控件"><a href="#timer（时钟）控件" class="headerlink" title="timer（时钟）控件"></a>timer（时钟）控件</h3><p>当调用timer.start()的时候，就会执行timer事件</p>
+<h3 id="DataTimePicker（日期选择）控件"><a href="#DataTimePicker（日期选择）控件" class="headerlink" title="DataTimePicker（日期选择）控件"></a>DataTimePicker（日期选择）控件</h3><p>​    属性：Format：long（年月日），</p>
+<p>​                short（xx/xx/xx），</p>
+<p>​                time（时：分：秒），</p>
+<p>​                custom自定义（同时设置格式属性按照yy-MM-dd HH:mm:ss）。</p>
+<p><img src="/2021/02/28/winform%E5%AD%A6%E4%B9%A0/assets/image-20210228172837013.png" alt="image-20210228172837013"></p>
+<h3 id="TreeView（树）控件"><a href="#TreeView（树）控件" class="headerlink" title="TreeView（树）控件"></a>TreeView（树）控件</h3><p>​            属性：Nodes  每个子节点作为一个选项。最直接的例子是windows中的注册表</p>
+<p>​                        HotTracking：移动至该节点的时候，该节点的文字会自动添加下划线</p>
+<p><img src="/2021/02/28/winform%E5%AD%A6%E4%B9%A0/assets/image-20210228180018611.png" alt="image-20210228180018611"></p>
+<pre><code>private void button1_Click(object sender, EventArgs e)
+        {
+            //添加节点第一中方式
+            treeView1.Nodes.Add(&quot;添加的第一个节点&quot;);
+
+            //第二种方式
+            TreeNode tn = new TreeNode();
+            tn.Name = &quot;tn2&quot;;
+            tn.Text = &quot;第二个节点&quot;;
+            treeView1.Nodes.Add(tn);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //移除最后一个节点
+            treeView1.Nodes.RemoveAt(treeView1.Nodes.Count-1);
+        }</code></pre><h3 id="LIstVIew（列表）控件"><a href="#LIstVIew（列表）控件" class="headerlink" title="LIstVIew（列表）控件"></a>LIstVIew（列表）控件</h3><p>属性：view：显示模式，常用为details</p>
+<p>项：就是行（每个ListViewItem就是一行）。Items中的列就是列（SubItems是子列）</p>
+<p>Gridines:显示出网格</p>
+</div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">我是良民</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2021/02/28/winform%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2021/02/28/winform学习/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="http://yoursite.com">我是良民的博客</a>！</span></div></blockquote></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Progressbar（进度条）控件"><span class="toc-number">1.</span> <span class="toc-text">Progressbar（进度条）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NumericUpDown（数字输入框）控件"><span class="toc-number">2.</span> <span class="toc-text">NumericUpDown（数字输入框）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ToolTip（提示信息）控件"><span class="toc-number">3.</span> <span class="toc-text">ToolTip（提示信息）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Notifylcon-托盘控件"><span class="toc-number">4.</span> <span class="toc-text">Notifylcon(托盘控件)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConTextMenuStrip（右键之后显示菜单）控件"><span class="toc-number">5.</span> <span class="toc-text">ConTextMenuStrip（右键之后显示菜单）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timer（时钟）控件"><span class="toc-number">6.</span> <span class="toc-text">timer（时钟）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataTimePicker（日期选择）控件"><span class="toc-number">7.</span> <span class="toc-text">DataTimePicker（日期选择）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeView（树）控件"><span class="toc-number">8.</span> <span class="toc-text">TreeView（树）控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIstVIew（列表）控件"><span class="toc-number">9.</span> <span class="toc-text">LIstVIew（列表）控件</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2021/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93/">&lt; 数据库</a><a class="next" href="/2021/02/01/csharp%E5%AD%A6%E4%B9%A0/">csharp学习 &gt;</a></div><div id="valine-comment"><style type="text/css">.night .v[data-class=v] a { color: #0F9FB4 !important; }
+.night .v[data-class=v] a:hover { color: #216C73 !important; }
+.night .v[data-class=v] li { list-style: inherit; }
+.night .v[data-class=v] .vwrap { border: 1px solid #223441; border-radius: 0; }
+.night .v[data-class=v] .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.night .v[data-class=v] .vbtn { border-radius: 0; background: none; }
+.night .v[data-class=v] .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.night .v[data-class=v] .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.night .v[data-class=v] .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre,.night .v[data-class=v] .vlist .vcard .vhead .vsys { background: #203240 !important; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre { color: #F0F0F0; font-size: 95%; }
+.v[data-class=v] .vcards .vcard .vh {border-bottom-color: #223441; }
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:before {background: linear-gradient(180deg,rgba(38,57,73,.4),rgba(38,57,73,.9));}
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:after {background: rgba(38,57,73,.9)}
+</style><div id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'',
+  appKey:'',
+  lang: 'zh-cn',
+  placeholder:'ヾﾉ≧∀≦)o Come on, say something...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2021 <a href="/." rel="nofollow">我是良民</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>
