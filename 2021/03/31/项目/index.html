@@ -1,0 +1,640 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="我是良民的博客"><meta name="baidu-site-verification"><title>项目 | 我是良民</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="我是良民" type="application/atom+xml">
+</head><link rel="stylesheet" type="text/css" href="/plugins/prettify/doxy.css"><script type="text/javascript" src="/js/ready.js" async></script><body class="night"><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/profile.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">我是良民</a></h1></div><p class="m-desc">心之所向，无惧无悔,<br>愿求仁得仁，复无怨怼！</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li><span class="dot">●</span><a href="/atom.xml">RSS</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">项目</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2021/03/31/%E9%A1%B9%E7%9B%AE/">2021-03-31</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><h1 id="项目1：重命名文件系统"><a href="#项目1：重命名文件系统" class="headerlink" title="项目1：重命名文件系统"></a>项目1：重命名文件系统</h1><p>地址：F:\c#_code\RenameFileApplacation</p>
+<p>Combox的下拉框选择后触发事件，使用comboBox2_SelectedValueChanged事件</p>
+<ol>
+<li><h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><p>Directory.CreateDirectory(newPath);</p>
+</li>
+<li><h2 id="重命名核心算法："><a href="#重命名核心算法：" class="headerlink" title="重命名核心算法："></a>重命名核心算法：</h2><p>将文件移动到一个新的文件夹下并重新改名，删除原来的文件夹，然后再移动回来，          </p>
+</li>
+</ol>
+<p>File.Move(oldPath + oldName[Form1.flag], newPath + newName);</p>
+<p>File.Move(newPath + newName, oldPath + newName);</p>
+<ol start="3">
+<li><h2 id="获取文件夹下所有文件"><a href="#获取文件夹下所有文件" class="headerlink" title="获取文件夹下所有文件"></a>获取文件夹下所有文件</h2><p>DirectoryInfo di = new DirectoryInfo(oldPath);</p>
+<p>​                                           FileInfo[] fi = di.GetFiles();</p>
+</li>
+</ol>
+<h2 id="选择文件夹"><a href="#选择文件夹" class="headerlink" title="选择文件夹"></a>选择文件夹</h2><p>folderbrowerdialog，openfiledialog,savefiledialog实际上都是winform中的默认控件，常规操作都是创建对象之后在点击ok之后之后执行相应的代码。</p>
+<pre><code>public void getPath() {
+
+​      FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+​      fbd.SelectedPath = &quot;e:\\&quot;;//默认选择的路径
+
+​      if (fbd.ShowDialog() == DialogResult.OK)
+
+​      {
+
+​        if (fbd.SelectedPath != &quot;&quot;)
+
+​        {
+
+​          filePath.Text = fbd.SelectedPath.Trim();//前端的路径输入框
+
+​          path = fbd.SelectedPath.Trim();//将文件夹路径保存到一个静态变量中
+
+​        }
+
+​        else
+
+​        {
+
+​          MessageBox.Show(&quot;文件路径错误&quot;);
+
+​        }
+
+​      }
+
+​    }</code></pre><h2 id="文件加载功能"><a href="#文件加载功能" class="headerlink" title="文件加载功能"></a>文件加载功能</h2><pre><code>private void filePath_Click(object sender, EventArgs e)
+
+​    {
+
+​      getPath();
+
+​      //获取文件路径
+
+​      oldPath = Form1.path + &quot;\\&quot;;
+
+​      DirectoryInfo di = new DirectoryInfo(oldPath);
+
+​      FileInfo[] fi = di.GetFiles();//获取文件夹中的所有文件
+
+​      //将文件按照创建时间进行排序
+
+​      //string[] oldName = Directory.GetFiles(oldPath);
+
+​      Array.Sort(fi, delegate(FileInfo x, FileInfo y) { return x.CreationTime.CompareTo(y.CreationTime); });
+
+​      oldName = new string[fi.Length];
+
+​      for (int i = 0; i &lt; fi.Length; i++)
+
+​      {
+
+​        oldName[i] = fi[i].Name;
+
+​      }
+
+​    }</code></pre><h2 id="实现按下enter键完成操作"><a href="#实现按下enter键完成操作" class="headerlink" title="实现按下enter键完成操作"></a>实现按下enter键完成操作</h2><p>判断键盘上按下的键是哪个键e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab</p>
+<pre><code>private void textBox1_KeyDown(object sender, KeyEventArgs e)
+
+​    {
+
+​        id = 1;
+
+​        inputEnter(((TextBox)sender).Text, e, id);//当前控件对象时textbox类型
+
+​        MessageBox.Show(&quot;文件路径不能为空&quot;);
+
+​    }
+
+public void inputEnter(string str, KeyEventArgs e,int id)
+
+​    {
+
+​      if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+
+​      {
+
+​        int i = int.Parse(str);
+
+​        for (int j = 0; j &lt; i; j++)
+
+​        {
+
+​          Form2 form2 = new Form2(this,j+1);
+
+​          form2.ShowDialog();
+
+​        }
+
+​      }
+
+​    }</code></pre><h2 id="重命名代码"><a href="#重命名代码" class="headerlink" title="重命名代码"></a>重命名代码</h2><pre><code>public void renameFile(Form1 form1)
+
+​    {
+
+​      //获取文件路径
+
+​      //获取大类，和份数
+
+​      int count = int.Parse(textBox1.Text);//获取页数
+
+​      String newPath;
+
+​      newPath = oldPath + &quot;a\\&quot;;
+
+​      Directory.CreateDirectory(newPath);//创建文件夹
+
+​      //处理第四类
+
+​      if (id == 4) {
+
+​        string LittleClass = form1.comboBox1.Text;
+
+//不超过10页          
+
+ if (count &lt; 10) {
+
+​            for (int j = 0; j &lt; count; j++)
+
+​            {
+
+​              string newName = &quot;0&quot; + id + &quot;-&quot; + LittleClass + &quot;-&quot; + i + &quot;-&quot; + (j + 1) + &quot;.jpg&quot;;
+
+​              //3月9日处理不了
+
+​              File.Move(oldPath + oldName[Form1.flag], newPath + newName);
+
+​              File.Move(newPath + newName, oldPath + newName);
+
+​              Form1.flag++;
+
+​            }
+
+​            Directory.Delete(newPath);
+
+​          }
+
+​    }</code></pre><h1 id="项目2-记事本"><a href="#项目2-记事本" class="headerlink" title="项目2:记事本"></a>项目2:记事本</h1><p>地址：F:\c#_code\notepad</p>
+<p>需要引用的命名空间</p>
+<p>using System.Drawing.Text;</p>
+<p>using System.Collections;</p>
+<p>using System.IO;</p>
+<h2 id="添加工具栏"><a href="#添加工具栏" class="headerlink" title="添加工具栏"></a>添加工具栏</h2><p>toolscrip，设置成以下显示方式：</p>
+<p>​    1.在属性中将displayStyle设置成文字和图片</p>
+<p>​    2.imagescaling设置为none</p>
+<p>​    3.texeimagerelation显示方式设置为imageabovetext即可。</p>
+<p><img src="/2021/03/31/%E9%A1%B9%E7%9B%AE/assets/wps30D8.tmp.jpg" alt="img"> </p>
+<h2 id="将字体加载到combobox中"><a href="#将字体加载到combobox中" class="headerlink" title="将字体加载到combobox中"></a>将字体加载到combobox中</h2><p>//调用字体库，一般是写到窗口加载的代码中</p>
+<p>​      InstalledFontCollection ifc = new InstalledFontCollection();</p>
+<p>​      FontFamily[] ff =  ifc.Families;//字体数组</p>
+<p>​      //往combox中添加字体名字</p>
+<p>​      for (int i = 0; i &lt; ff.Length; i++) {</p>
+<p>​        toolStripComboBox1.Items.Add(ff[i].Name);</p>
+<p>​      }</p>
+<h2 id="字体加粗-倾斜，倾斜将blod改为Italic即可"><a href="#字体加粗-倾斜，倾斜将blod改为Italic即可" class="headerlink" title="字体加粗/倾斜，倾斜将blod改为Italic即可"></a>字体加粗/倾斜，倾斜将blod改为Italic即可</h2><p>C#对字体进行设置时，使用label.Font = new Font(“字体类型”,字体大小,是否加粗/斜体/、下划线/删除线);因为在c#中，字体的属性是一个枚举类型，是只读的，不能对其直接进行设置，所以需要进行重新绘制。</p>
+<p>错误写法：textBox1.Font.Bold = true;</p>
+<p>正确写法：textBox1.Font = new Font(textBox1.Font,FontStyle.Bold);</p>
+<p>//加粗按钮</p>
+<pre><code>      if (textBox1.Font.Bold == false)
+
+​      {
+
+​        textBox1.Font = new Font(textBox1.Font, FontStyle.Bold);
+
+​      }
+
+​      else {
+
+​        //取消加粗
+
+​        //textBox1.Font.Bold = true;错误写法
+
+​        textBox1.Font = new Font(textBox1.Font,FontStyle.Regular);
+
+​      }
+
+## 选择</code></pre><h2 id="字体同时进行字体更改"><a href="#字体同时进行字体更改" class="headerlink" title="字体同时进行字体更改"></a>字体同时进行字体更改</h2><p>//字体类型改变</p>
+<p>​    </p>
+<pre><code>  string fontName =  toolStripComboBox1.Text;//在combox中获取字体的名字
+
+​      float  fontSize = float.Parse(toolStripComboBox2.Text);//获取字体的大小
+
+​      textBox1.Font = new Font(fontName,fontSize);//字体更改
+
+字体大小改变combobox2中手动写入了10-22字号的大小，所以fontsize实际上就是字号大小</code></pre><h2 id="Savefiledialog和openfiledialog-新建，关闭，全部关闭"><a href="#Savefiledialog和openfiledialog-新建，关闭，全部关闭" class="headerlink" title="Savefiledialog和openfiledialog,新建，关闭，全部关闭"></a>Savefiledialog和openfiledialog,新建，关闭，全部关闭</h2><p>的区别如下，savefiledialog打开的保存窗口，而openfiledialog打开的是打开窗口，两者里面的一些属性或者方法有些是不同的，前者的filename是文件名是路径名加上手动写入的文件名，而后者的filename是点击的文件的文件名。(注意filenames属性是包含前面的文件路径名，而safafilename不包含路径名，只是文件名)</p>
+<p>前者使用streamwriter，后者使用streamreader。</p>
+<p><img src="file:///C:%5CUsers%5Chasee%5CAppData%5CLocal%5CTemp%5Cksohtml%5Cwps8B08.tmp.jpg" alt="img"> <img src="/2021/03/31/%E9%A1%B9%E7%9B%AE/assets/wps8B18.tmp.jpg" alt="img"></p>
+<p>​        保存                                                                                                    打开</p>
+<p>//进行保存文件</p>
+<pre><code>    if (textBox1.Text.Trim() != &quot;&quot;)
+
+​      {
+
+​        SaveFileDialog sfd = new SaveFileDialog();//查看savefiledialog与openfiledialog与folderbrowserdialog的关系   
+
+​        sfd.Filter = (&quot;文本文档(*.txt)|*.txt&quot;);//为保存的文件设置保存格式为txt类型
+
+​        if (sfd.ShowDialog() == DialogResult.OK)
+
+​        {
+
+​          string path = sfd.FileName;//获取需要保存的文件路径，以及手动输入的文件名
+
+​          StreamWriter sw = new StreamWriter(path, false);//false表示如果有和它一样的文件名不会进行追加，如果改为true则表示将文件追加到原来文件的后面
+
+​          sw.WriteLine(textBox1.Text.Trim());
+
+​          sw.Flush();
+
+​          sw.Close();
+
+​        }</code></pre><p>打开文件代码</p>
+<pre><code>OpenFileDialog ofd = new OpenFileDialog();
+
+​      ofd.Filter = (&quot;文本文档(*.txt)|*.txt&quot;);//设置打开文档类型
+
+​      if (ofd.ShowDialog() == DialogResult.OK) {
+
+​        string path = ofd.FileName;
+
+​        StreamReader sr = new StreamReader(path,Encoding.UTF8);
+
+​        textBox1.Text = sr.ReadToEnd();
+
+​        sr.Close();
+
+​      }</code></pre><p>新建</p>
+<pre><code>FrmChild fc = new FrmChild();
+
+​      fc.MdiParent = this;//应用到了多文档窗口
+
+​      fc.Show();</code></pre><p>关闭</p>
+<pre><code>Form frm = this.ActiveMdiChild;//关闭当前激活状态的子窗体
+
+​      frm.Close();
+
+
+
+全部关闭
+
+​            //使用foreach循环关闭
+
+​      foreach (Form item in this.MdiChildren)
+
+​      {
+
+​        this.ActiveMdiChild.Close();
+
+​      }</code></pre><h2 id="多文档界面"><a href="#多文档界面" class="headerlink" title="多文档界面"></a>多文档界面</h2><p>与单文档界面不同，当应用程序执行时，单文档界面只能操作一个文档，每个窗口都是一个单独的程序，多文档界面可同时操作多个窗口，但是就一个程序，且子窗体都是显示在父窗体里面的，而单文档界面调用一个窗体时，该窗体是任意位置的。比如学生管理系统可以同时操作添加学生和成绩管理两个窗口。在任务栏中，多文档(mdi)只显示一个任务，而单文档显示多个任务。</p>
+<p>操作方法：在父窗体中将ismdicontainer属性改为true，在创建子窗体的对象后，使用对象.mdiParent = 父窗体对象即可。</p>
+<h1 id="项目3：图书管理系统"><a href="#项目3：图书管理系统" class="headerlink" title="项目3：图书管理系统"></a>项目3：图书管理系统</h1><h2 id="1-技巧："><a href="#1-技巧：" class="headerlink" title="1.技巧："></a>1.技巧：</h2><p>​    如果想要将从前端获取的数据临时进行存取，例如：用户名，id，可以添加一个静态类。</p>
+<p>这样当后台需要使用使用该数据的时候，就可以直接将其提取出来。（不需要重新建立一个数据表进行增删改的操作了）。但是如果需要永久保存数据的话并且作为中介，则还是需要数据表的，例如借出的图书，归还的图书。</p>
+<p>从数据库查询到结果后，使用c#从后台获取到的方法，在（3用户登陆）中。通过数组获取。第一种是使用索引，第二种是直接使用字段获取。第二种更好</p>
+<p>保证多个radiobutton只能选择一个，在（3用户登陆）中</p>
+<p>后端数据库中的数据显示在前端页面的方法（5）中</p>
+<p>可将修改和添加写在一个窗体中，然后如果是添加则自动显示添加按钮，如果是修改则显示修改按钮，两个按钮进行覆盖。</p>
+<p>了解DialogResult dr = MessageBox.Show(“是否要删除该图书”, “”,</p>
+<p>MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);中每个参数的含义，返回结果</p>
+<p>与dialogresult中的枚举值进行对比。</p>
+<p>​    如何获取表格中选中行的数据并且进行操作，在（7中）</p>
+<p>​    判断增删改执行成功，判断语句是影响的行数是否大于0即可，查询判断语句是bool型</p>
+<p>​    Form2如果想要使用form1中的方法，那么应该需要将Form1作为一个对象传递到Form2中，如果想要使用Form1中的一些属性，实际上Form1的属性可以将private改为public即可。</p>
+<p>​    修改图书:方法1：执行一次删除，在执行一次添加，方法2.执行update语句。（参考8）</p>
+<p>​    多行删除操作：11</p>
+<h2 id="2-连接数据库的源码"><a href="#2-连接数据库的源码" class="headerlink" title="2.连接数据库的源码"></a>2.连接数据库的源码</h2><p>class Dao</p>
+<p>  {</p>
+<p>​    /*连接数据库的三个步骤</p>
+<p>​     * 1.获取数据源</p>
+<p>​     * 2.加载数据源和sql命令</p>
+<p>​     * 3.开始执行</p>
+<p>​             *4.关闭数据库</p>
+<p>​     */</p>
+<p>​    SqlConnection sc;</p>
+<p>​    public SqlConnection connection() {</p>
+<p>​    string path = “Data Source=(localdb)\Projects;Initial Catalog=BookMS;Integrated Security=True”;</p>
+<p>​      sc = new SqlConnection(path);</p>
+<p>​      sc.Open();</p>
+<p>​      return sc;</p>
+<p>​    }</p>
+<p>​    public SqlCommand command(string sql) {</p>
+<p>​      SqlCommand sc = new SqlCommand(sql,connection());</p>
+<p>​      return sc;</p>
+<p>​    }</p>
+<p>​    public int execute(string sql) {</p>
+<p>​      return command(sql).ExecuteNonQuery();</p>
+<p>​    }</p>
+<p>​    public SqlDataReader read(string sql) {</p>
+<p>​      return command(sql).ExecuteReader();</p>
+<p>​    }</p>
+<p>​    public void dbClose() {</p>
+<p>​      sc.Close();</p>
+<p>​    }</p>
+<p>​     </p>
+<p>  }</p>
+<h2 id="3-用户登陆"><a href="#3-用户登陆" class="headerlink" title="3. 用户登陆"></a>3. 用户登陆</h2><p>​      if (radioButton1.Checked == true) {//radio选择的是用户</p>
+<p>​       radioButton2.Checked = false;//将管理员设置为false，以保证唯一性</p>
+<p>​        string sql = “select * from t_user where id = ‘“+textBox1.Text+”‘ and psw = ‘“+textBox2.Text+”‘“;</p>
+<p>​        Dao dao = new Dao();</p>
+<p>​        SqlDataReader sr = dao.read(sql);//查询语句用read方法。并且返回值为bool型。</p>
+<p>​        if (sr.Read())//因为只需要查询固定的某个人，所以只需要执行一次即可，否则需要使用while循环，sr.Read()方法会自动指向下一个指针。</p>
+<p>​        {</p>
+<p>​          //将用户的id和姓名保存在静态类里面，以便后面使用。</p>
+<p>​          User.Uid = sr[“id”].ToString();</p>
+<p>​          User.Uname = sr[“name”].ToString();</p>
+<p>​          UserMain um = new UserMain();</p>
+<p>​          this.Hide();</p>
+<p>​          um.ShowDialog();</p>
+<p>​          this.Show();</p>
+<p>​        }</p>
+<p>​        else {</p>
+<p>​          MessageBox.Show(“用户名或者密码错误”);</p>
+<p>​        }</p>
+<p>​        sr.Close();</p>
+<h2 id="4-管理员登陆"><a href="#4-管理员登陆" class="headerlink" title="4. 管理员登陆"></a>4. 管理员登陆</h2><p>同用户登陆一样。</p>
+<h2 id="5-将数据库中的数据显示到前端表格中"><a href="#5-将数据库中的数据显示到前端表格中" class="headerlink" title="5. 将数据库中的数据显示到前端表格中"></a>5. 将数据库中的数据显示到前端表格中</h2><p>public void showTable()</p>
+<p>​    {</p>
+<p>​      dataGridView1.Rows.Clear();//清除原有数据</p>
+<p>​      string sql = “select * from t_book”;</p>
+<p>​      Dao dao = new Dao();</p>
+<p>​      IDataReader ir = dao.read(sql);</p>
+<p>​      while (ir.Read())</p>
+<p>​      {</p>
+<p>​        //记住往表格中添加数据的方法</p>
+<p>​        dataGridView1.Rows.Add(ir[0].ToString(), ir[1].ToString(), ir[2].ToString(), ir[3].ToString(), ir[4].ToString());</p>
+<p>​      }</p>
+<p>​      ir.Close();</p>
+<p>​      dao.dbClose();</p>
+<p>​    }</p>
+<p>\6. 添加图书</p>
+<p>private void button1_Click(object sender, EventArgs e)//点击提交时间的时候执行</p>
+<p>​    {</p>
+<p>​      if (textBox1.Text != “” &amp;&amp; textBox2.Text != “” &amp;&amp; textBox3.Text != “” &amp;&amp; textBox4.Text != “” &amp;&amp; textBox5.Text != “”)</p>
+<p>​      {</p>
+<p>​        Dao dao = new Dao();</p>
+<p>​        string sql = “insert into t_book values (‘“ + textBox1.Text + “‘,’” + textBox2.Text + “‘,’” + textBox3.Text + “‘,’” + textBox4.Text + “‘,’” + textBox5.Text + “‘);”;</p>
+<p>​        if (dao.execute(sql) &gt; 0)</p>
+<p>​        {</p>
+<p>​          MessageBox.Show(“添加成功”);</p>
+<p>​        }</p>
+<p>​        else</p>
+<p>​        {</p>
+<p>​          MessageBox.Show(“添加失败”);</p>
+<p>​        }</p>
+<p>​        textBox1.Text = null;</p>
+<p>​        textBox2.Text = null;</p>
+<p>​        textBox3.Text = null;</p>
+<p>​        textBox4.Text = null;</p>
+<p>​        textBox5.Text = null;</p>
+<p>​        book.showTable();</p>
+<p>​      }</p>
+<p>​      else {</p>
+<p>​        MessageBox.Show(“不能有空项”);</p>
+<p>​      }</p>
+<p>​    }</p>
+<h2 id="7-删除图书"><a href="#7-删除图书" class="headerlink" title="7. 删除图书"></a>7. 删除图书</h2><p>private void button3_Click(object sender, EventArgs e)</p>
+<p>​    {</p>
+<p>​      //删除图书</p>
+<p>​      DialogResult dr = MessageBox.Show(“是否要删除该图书”, “”, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);</p>
+<p>​      if (dr == DialogResult.Yes)//判断返回结果</p>
+<p>​      {</p>
+<p>​        //注意获取选中行的字段技巧。注意，selectRows中的索引值默认代表的是多选情况下（multiselect），对应的所选的行的集合中的某一行。</p>
+<p>​        //如果multiselect属性改为false（即只能选择一行），那么index只能为0。cells同理</p>
+<p>​        string id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();</p>
+<p>​        string sql = “delete from t_book where id = ‘“ + id + “‘“;</p>
+<p>​        Dao dao = new Dao();</p>
+<p>​        if (dao.execute(sql) &gt; 0)</p>
+<p>​        {</p>
+<p>​          MessageBox.Show(“删除成功”);</p>
+<p>​          showTable();</p>
+<p>​        }</p>
+<p>​        else {</p>
+<p>​          MessageBox.Show(“删除失败”);</p>
+<p>​        }</p>
+<p>​        dao.dbClose();</p>
+<p>​      }</p>
+<p>​    }</p>
+<h2 id="8-修改图书"><a href="#8-修改图书" class="headerlink" title="8.修改图书"></a>8.修改图书</h2><pre><code>private void button3_Click(object sender, EventArgs e)
+
+​    {
+
+​      //修改图书
+
+​      string id, name, press, num, author;
+
+​      id = textBox1.Text;
+
+​      name = textBox2.Text;
+
+​      press = textBox3.Text;
+
+​      num = textBox4.Text;
+
+​      author = textBox5.Text;
+
+​      string sql = &quot;update t_book set id = &#39;&quot;+textBox1.Text+&quot;&#39;,name=&#39;&quot;+textBox2.Text+&quot;&#39;,press=&#39;&quot;+textBox3.Text+&quot;&#39;,num=&#39;&quot;+textBox4.Text+&quot;&#39;,author=&#39;&quot;+textBox5.Text+&quot;&#39; where id=&#39;&quot;+str[0]+&quot;&#39;&quot;;
+
+​      Dao dao = new Dao();
+
+​      if (dao.execute(sql) &gt; 0) {
+
+​        MessageBox.Show(&quot;修改成功&quot;);
+
+​      }
+
+​      book.showTable();
+
+​    }</code></pre><h2 id="9-归还图书"><a href="#9-归还图书" class="headerlink" title="9. 归还图书"></a>9. 归还图书</h2><pre><code>public void showTable()
+
+​    {
+
+​      dataGridView1.Rows.Clear();
+
+​      string sql = &quot;select [no],[bid],[datetime] from t_lend where uid = &#39;&quot;+User.Uid+&quot;&#39;&quot;;
+
+​      Dao dao = new Dao();
+
+​      IDataReader ir = dao.read(sql);
+
+​      while (ir.Read())
+
+​      {
+
+​        //记住往表格中添加数据的方法
+
+​        dataGridView1.Rows.Add(ir[0].ToString(), ir[1].ToString(), ir[2].ToString());
+
+​      }
+
+​      ir.Close();
+
+​      dao.dbClose();
+
+​    }
+
+
+
+​    private void button1_Click(object sender, EventArgs e)
+
+​    {
+
+​      //归还图书
+
+​      int no = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+
+​      string id = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+​      string sql = &quot;delete from t_lend where no=&#39;&quot;+no+&quot;&#39;&quot;;
+
+​      string sql2 = &quot;update t_book set num = (num+1) where Id = &#39;&quot;+id+&quot;&#39;&quot;;
+
+​      Dao dao = new Dao();
+
+​      if (dao.execute(sql) &gt; 0 &amp;&amp; dao.execute(sql2) &gt; 0)
+
+​      {
+
+​        MessageBox.Show(&quot;归还成功&quot;);
+
+​      }
+
+​      else {
+
+​        MessageBox.Show(&quot;归还失败&quot;);
+
+​      }
+
+​      showTable();
+
+​      
+
+​    }</code></pre><h2 id="10-借出图书"><a href="#10-借出图书" class="headerlink" title="10. 借出图书"></a>10. 借出图书</h2><pre><code>public void showTable()
+
+​    {
+
+​      dataGridView1.Rows.Clear();
+
+​      string sql = &quot;select * from t_book&quot;;
+
+​      Dao dao = new Dao();
+
+​      IDataReader ir = dao.read(sql);
+
+​      while (ir.Read())
+
+​      {
+
+​        //记住往表格中添加数据的方法
+
+​        dataGridView1.Rows.Add(ir[0].ToString(), ir[1].ToString(), ir[2].ToString(), ir[3].ToString(), ir[4].ToString());
+
+​      }
+
+​      ir.Close();
+
+​      dao.dbClose();
+
+​    }
+
+
+
+​    private void button1_Click(object sender, EventArgs e)
+
+​    {
+
+​      //执行借出图书操作
+
+​      string  id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+​      int num = int.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());//获取书的库存
+
+​      if(num &lt; 1){
+
+​        MessageBox.Show(&quot;库存不足，请联系管理员购入&quot;);
+
+​      }else {
+
+​        string sql = &quot;update  t_book set num=&#39;&quot; + (num - 1) + &quot;&#39;where id = &#39;&quot;+id+&quot;&#39;&quot;;
+
+​        string sql2 = &quot;insert into t_lend ([uid],[bid],[datetime]) values(&#39;&quot;+User.Uid+&quot;&#39;,&#39;&quot; + id + &quot;&#39;,GETDATE());&quot;;
+
+​        Dao dao = new Dao();
+
+​        if (dao.execute(sql) &gt; 0 &amp;&amp; dao.execute(sql2)&gt;0)
+
+​        {
+
+​          MessageBox.Show(&quot;借出成功&quot;);
+
+​        }
+
+​        else {
+
+​          MessageBox.Show(&quot;借出失败&quot;);
+
+​        }
+
+​        showTable();
+
+​      }</code></pre><h2 id="11-选中多行进行删除"><a href="#11-选中多行进行删除" class="headerlink" title="11. 选中多行进行删除"></a>11. 选中多行进行删除</h2><pre><code>private void button7_Click(object sender, EventArgs e)
+
+​    {
+
+​      //多行删除功能的实现
+
+​      int n = dataGridView1.SelectedRows.Count;//选中行的数目
+
+​      //delete from t_book where id in(201906,20190108);
+
+​      string sql = &quot;delete from t_book where id in(&quot;;
+
+​      for(int i=0;i &lt; n ;i++){
+
+​        sql += &quot;&#39;&quot; + dataGridView1.Rows[i].Cells[0].Value.ToString()+&quot;&#39;,&quot;;
+
+​      }
+
+​      sql =sql.Remove(sql.Length-2);//删除最后一个逗号
+
+​      sql += &quot;&#39;)&quot;;
+
+​      Dao dao = new Dao();
+
+
+
+​      if (dao.execute(sql) &gt; (n - 1))
+
+​      {
+
+​        MessageBox.Show(&quot;删除成功&quot;);
+
+​      }
+
+​      else {
+
+​        MessageBox.Show(&quot;删除失败&quot;);
+
+​      }
+
+​      showTable();
+
+​    }</code></pre></div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">我是良民</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2021/03/31/%E9%A1%B9%E7%9B%AE/">http://yoursite.com/2021/03/31/项目/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="http://yoursite.com">我是良民的博客</a>！</span></div></blockquote></div></article><div class="p-info box"></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目1：重命名文件系统"><span class="toc-number">1.</span> <span class="toc-text">项目1：重命名文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建文件夹"><span class="toc-number">1.1.</span> <span class="toc-text">创建文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重命名核心算法："><span class="toc-number">1.2.</span> <span class="toc-text">重命名核心算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取文件夹下所有文件"><span class="toc-number">1.3.</span> <span class="toc-text">获取文件夹下所有文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择文件夹"><span class="toc-number">1.4.</span> <span class="toc-text">选择文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件加载功能"><span class="toc-number">1.5.</span> <span class="toc-text">文件加载功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现按下enter键完成操作"><span class="toc-number">1.6.</span> <span class="toc-text">实现按下enter键完成操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重命名代码"><span class="toc-number">1.7.</span> <span class="toc-text">重命名代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目2-记事本"><span class="toc-number">2.</span> <span class="toc-text">项目2:记事本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加工具栏"><span class="toc-number">2.1.</span> <span class="toc-text">添加工具栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将字体加载到combobox中"><span class="toc-number">2.2.</span> <span class="toc-text">将字体加载到combobox中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体加粗-倾斜，倾斜将blod改为Italic即可"><span class="toc-number">2.3.</span> <span class="toc-text">字体加粗&#x2F;倾斜，倾斜将blod改为Italic即可</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体同时进行字体更改"><span class="toc-number">2.4.</span> <span class="toc-text">字体同时进行字体更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Savefiledialog和openfiledialog-新建，关闭，全部关闭"><span class="toc-number">2.5.</span> <span class="toc-text">Savefiledialog和openfiledialog,新建，关闭，全部关闭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多文档界面"><span class="toc-number">2.6.</span> <span class="toc-text">多文档界面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目3：图书管理系统"><span class="toc-number">3.</span> <span class="toc-text">项目3：图书管理系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-技巧："><span class="toc-number">3.1.</span> <span class="toc-text">1.技巧：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-连接数据库的源码"><span class="toc-number">3.2.</span> <span class="toc-text">2.连接数据库的源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-用户登陆"><span class="toc-number">3.3.</span> <span class="toc-text">3. 用户登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-管理员登陆"><span class="toc-number">3.4.</span> <span class="toc-text">4. 管理员登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-将数据库中的数据显示到前端表格中"><span class="toc-number">3.5.</span> <span class="toc-text">5. 将数据库中的数据显示到前端表格中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-删除图书"><span class="toc-number">3.6.</span> <span class="toc-text">7. 删除图书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-修改图书"><span class="toc-number">3.7.</span> <span class="toc-text">8.修改图书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-归还图书"><span class="toc-number">3.8.</span> <span class="toc-text">9. 归还图书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-借出图书"><span class="toc-number">3.9.</span> <span class="toc-text">10. 借出图书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-选中多行进行删除"><span class="toc-number">3.10.</span> <span class="toc-text">11. 选中多行进行删除</span></a></li></ol></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="next" href="/2021/03/01/%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">学生管理系统 &gt;</a></div><div id="valine-comment"><style type="text/css">.night .v[data-class=v] a { color: #0F9FB4 !important; }
+.night .v[data-class=v] a:hover { color: #216C73 !important; }
+.night .v[data-class=v] li { list-style: inherit; }
+.night .v[data-class=v] .vwrap { border: 1px solid #223441; border-radius: 0; }
+.night .v[data-class=v] .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.night .v[data-class=v] .vbtn { border-radius: 0; background: none; }
+.night .v[data-class=v] .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.night .v[data-class=v] .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.night .v[data-class=v] .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre,.night .v[data-class=v] .vlist .vcard .vhead .vsys { background: #203240 !important; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre { color: #F0F0F0; font-size: 95%; }
+.v[data-class=v] .vcards .vcard .vh {border-bottom-color: #223441; }
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:before {background: linear-gradient(180deg,rgba(38,57,73,.4),rgba(38,57,73,.9));}
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:after {background: rgba(38,57,73,.9)}
+</style><div id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'',
+  appKey:'',
+  lang: 'zh-cn',
+  placeholder:'ヾﾉ≧∀≦)o Come on, say something...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2021 <a href="/." rel="nofollow">我是良民</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"></body></html>
